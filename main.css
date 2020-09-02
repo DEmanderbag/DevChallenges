@@ -32,7 +32,7 @@ ul {
 
 li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: var(--small-space);
   color: var(--text-color);
 }
