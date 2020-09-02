@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --text-family: "Montserrat", sans-serif;
+  --header-family: "Playfair Display", serif;
+  --accent-color: #f2994a;
+  --text-color: #333333;
+  --text-color01: #000000;
+  --gray-color: #bdbdbd;
+  --image-bg-color: #4f4f4f;
+  --white: #ffffff;
+}
+
+body {
+}
