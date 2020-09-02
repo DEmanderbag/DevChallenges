@@ -19,6 +19,7 @@
   --mobile-bg: #fafafa;
 
   /* Space */
+  --x-large-space: 3rem;
   --large-space: 2rem;
   --medium-space: 1rem;
   --small-space: 0.5rem;
@@ -192,4 +193,77 @@ a {
 
 .credit a {
   color: var(--gray-color);
+}
+
+@media screen and (min-width: 520px) and (max-width: 980px) {
+  .dots {
+    width: 1.5rem;
+  }
+
+  .cooking-time {
+    justify-content: flex-start;
+  }
+  .time {
+    margin-right: var(--large-space);
+  }
+  .ingredients,
+  .instructions {
+    max-width: 90%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    background-color: var(--white);
+  }
+  .dots {
+    width: 2rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .notice {
+    width: 38rem;
+    margin-bottom: var(--x-large-space);
+  }
+
+  .cheesecake {
+    margin-bottom: var(--x-large-space);
+  }
+  aside {
+    order: 2;
+    width: 20%;
+  }
+
+  .serving {
+    justify-content: center;
+    margin: 1rem 0 var(--large-space) 0;
+  }
+  .cooking-time {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .time {
+    margin-bottom: var(--large-space);
+  }
+  .time:last-child {
+    margin-bottom: 1rem;
+  }
+
+  .ingredients,
+  .instructions {
+    width: 80%;
+  }
+
+  .test {
+    display: flex;
+  }
+  .another {
+    padding: 1rem;
+    height: max-content;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11);
+  }
 }
