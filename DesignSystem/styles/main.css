@@ -1,0 +1,206 @@
+:root {
+  /* Button Colors */
+  --gray: #e0e0e0;
+  --gray-hover: #aeaeae;
+  --outline: #3d5afe;
+  --blue-hover: rgba(41, 98, 255, 0.1);
+
+  /* Text Colors */
+  --gray-text: #9e9e9e;
+  --dark: #3f3f3f;
+  --blue: #3d5afe;
+  --dark-black: #090f31;
+  --white: #ffffff;
+  --orange: #f7542e;
+
+  /* background */
+  --off-white: #f4fbfd;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+
+/* Grid style */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  display: flex;
+}
+
+.nav {
+  background-color: var(--off-white);
+  height: 100vh;
+  width: 17rem;
+  padding: 3rem;
+}
+
+/* Navigation styles */
+
+.nav__logo {
+  display: block;
+  color: var(--dark-black);
+  font-weight: 700;
+  margin-bottom: 5rem;
+}
+
+.nav__logo--accent {
+  color: var(--orange);
+}
+
+.nav__item {
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.nav__item--disabled {
+  color: var(--gray-text);
+  cursor: default;
+}
+
+.nav__item--active {
+  color: var(--dark-black);
+}
+
+/* Content section */
+
+section {
+  width: 100%;
+  padding: 3rem;
+}
+
+.content {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.content__group {
+  min-width: 20rem;
+}
+
+.content__label {
+  font-size: 12px;
+  font-family: "Ubuntu Mono", monospace;
+  margin-bottom: 1rem;
+}
+
+.content__label--lighter {
+  color: var(--gray-text);
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn__basic {
+  background: var(--gray);
+  color: var(--dark);
+  box-shadow: 0px 2px 3px rgba(51, 51, 51, 0.2);
+}
+
+.btn__basic--hover {
+  background: var(--gray-hover);
+}
+
+.btn__outline {
+  border: 1px solid var(--outline);
+  color: var(--blue);
+  background-color: transparent;
+}
+
+.btn__outline--hover {
+  background-color: var(--blue-hover);
+}
+
+.btn__text {
+  color: var(--blue);
+  background-color: transparent;
+}
+
+.btn__text--hover {
+  background-color: var(--blue-hover);
+}
+
+.btn__primary {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.btn__disabled {
+  color: var(--gray-text);
+}
+
+.btn__disabled--text {
+  color: var(--gray-text);
+  background-color: transparent;
+}
+
+.btn__icon {
+  background-color: var(--blue);
+  color: var(--white);
+  box-shadow: 0px 2px 3px rgba(0, 49, 202, 0.2);
+}
+.btn__icon-start {
+  margin-right: 0.5rem;
+  color: white;
+}
+
+.btn__icon-end {
+  margin-left: 0.5rem;
+}
+
+.btn__primary--sm {
+  padding: 0.5rem 1rem;
+  box-shadow: 0px 2px 3px rgba(0, 49, 202, 0.2);
+}
+
+.btn__primary--md {
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn__primary--lg {
+  padding: 1rem 1.75rem;
+  box-shadow: 0px 2px 3px rgba(0, 49, 202, 0.2);
+}
+
+.btn__primary--hover {
+  color: white;
+  background-color: #0039cb;
+}
+.btn__secondary {
+  background-color: #455a64;
+  color: var(--white);
+}
+
+.btn__secondary--hover {
+  background-color: #1c313a;
+  color: var(--white);
+}
+
+.btn__danger {
+  color: var(--white);
+  background-color: #d32f2f;
+}
+
+.btn__danger--hover {
+  color: var(--white);
+  background-color: #9a0007;
+}
