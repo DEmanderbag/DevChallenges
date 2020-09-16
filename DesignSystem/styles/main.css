@@ -39,7 +39,7 @@ body {
 
 .nav {
   background-color: var(--off-white);
-  height: 100vh;
+  flex: 1;
   width: 17rem;
   padding: 3rem;
 }
@@ -80,11 +80,11 @@ section {
 
 .content {
   display: flex;
-  margin-bottom: 2rem;
 }
 
 .content__group {
-  min-width: 20rem;
+  min-width: 17rem;
+  margin-bottom: 2rem;
 }
 
 .content__label {
@@ -109,36 +109,36 @@ section {
   cursor: pointer;
 }
 
-.btn__basic {
+.btn--basic {
   background: var(--gray);
   color: var(--dark);
   box-shadow: 0px 2px 3px rgba(51, 51, 51, 0.2);
 }
 
-.btn__basic--hover {
+.btn--basic--hover {
   background: var(--gray-hover);
 }
 
-.btn__outline {
+.btn--outline {
   border: 1px solid var(--outline);
   color: var(--blue);
   background-color: transparent;
 }
 
-.btn__outline--hover {
+.btn--outline--hover {
   background-color: var(--blue-hover);
 }
 
-.btn__text {
+.btn--text {
   color: var(--blue);
   background-color: transparent;
 }
 
-.btn__text--hover {
+.btn--text--hover {
   background-color: var(--blue-hover);
 }
 
-.btn__primary {
+.btn--primary {
   background-color: var(--blue);
   color: var(--white);
 }
@@ -166,22 +166,22 @@ section {
   margin-left: 0.5rem;
 }
 
-.btn__primary--sm {
+.btn--primary--sm {
   padding: 0.5rem 1rem;
   box-shadow: 0px 2px 3px rgba(0, 49, 202, 0.2);
 }
 
-.btn__primary--md {
+.btn--primary--md {
   padding: 0.75rem 1.5rem;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
-.btn__primary--lg {
+.btn--primary--lg {
   padding: 1rem 1.75rem;
   box-shadow: 0px 2px 3px rgba(0, 49, 202, 0.2);
 }
 
-.btn__primary--hover {
+.btn--primary--hover {
   color: white;
   background-color: #0039cb;
 }
