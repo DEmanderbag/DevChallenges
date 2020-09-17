@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors */
+  --light-black: #4e5150;
+  --light-gray: #e5e5e5;
+  --dark-gray: #a9a9a9;
+
+  /* Border radius */
+  --avatar-border-radius: 20px;
+  --profile-status-radius: 7px;
+  --gallery-border-radius: 20px;
+}
+
+/* 
+
+ */
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: var(--light-black);
+  font-weight: 600;
+  padding: 1rem;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.user__photo {
+  height: 80px;
+  width: 80px;
+  margin-bottom: 0.5rem;
+}
+
+.user__photo img {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--avatar-border-radius);
+}
+
+.user__name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+.user__name--primary {
+  font-weight: 600;
+  font-size: 1.0625rem;
+  margin-bottom: 0.125rem;
+}
+
+.user__name--secondary {
+  color: var(--dark-gray);
+  font-size: 0.75rem;
+}
+
+.user__id {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+.user__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--light-gray);
+  border-radius: var(--profile-status-radius);
+  width: 6rem;
+  height: 3rem;
+  font-size: 0.9375rem;
+  margin-right: 1rem;
+}
+
+.user__info:last-child {
+  margin-right: 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 100px);
+  grid-gap: 1rem;
+}
+
+.item {
+  overflow: hidden;
+  border-radius: var(--gallery-border-radius);
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.15));
+}
+
+.item img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.item--1,
+.item--5,
+.item--6 {
+  grid-column: span 2;
+}
+
+.item--2,
+.item--3 {
+  grid-column: span 4;
+}
+
+.item--4 {
+  grid-column: 5 / 7;
+  grid-row: 2 / 4;
+}
