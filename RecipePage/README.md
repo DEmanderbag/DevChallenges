@@ -1,4 +1,4 @@
-##Recipe Page Challenge
+## Recipe Page Challenge
 
 Live version of a project can be found [here](https://recipe-blog.vercel.app/ "Recipe Page live demo")
 
