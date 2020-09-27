@@ -37,6 +37,7 @@ img {
 nav {
   margin-bottom: 3rem;
 }
+
 nav a {
   font-family: "Inconsolata", monospace;
   color: var(--gray-1);
@@ -56,6 +57,8 @@ section {
   width: 100%;
   max-width: 30rem;
   overflow: hidden;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
 }
 
 .section__image img {
@@ -83,7 +86,7 @@ section {
   font-size: 0.75rem;
   text-transform: uppercase;
   font-weight: 700;
-  transition: 0.3s ease-out background-color;
+  transition: 0.5s ease-out background-color;
 }
 
 /* footer */
@@ -102,8 +105,11 @@ footer a {
   nav a:hover {
     color: var(--link-hover);
   }
+  .section__image:hover {
+    transform: translateY(-10%);
+  }
   .description--cta:hover {
-    background-color: var(--gray-2);
+    background-color: var(--link-hover);
   }
   footer a:hover {
     color: var(--link-hover);
