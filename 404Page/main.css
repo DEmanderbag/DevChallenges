@@ -63,7 +63,7 @@ section {
 }
 
 .section__image img {
-  width: 95%;
+  width: 85%;
   margin: 0 auto;
 }
 
@@ -93,6 +93,7 @@ section {
 
 /* footer */
 footer {
+  margin-top: var(--mb-xl);
   font-family: "Montserrat", sans-serif;
   font-size: 0.75rem;
   text-align: center;
@@ -119,6 +120,9 @@ footer a {
 }
 
 @media screen and (min-width: 800px) {
+  :root {
+    --mb-xl: 2rem;
+  }
   body {
     margin: 0 auto;
   }
@@ -130,10 +134,13 @@ footer a {
     flex-direction: row;
   }
   .section__image {
-    margin: 0;
     margin-right: 4rem;
   }
 
+  .section__image img {
+    margin: 0;
+    width: 100%;
+  }
   .description--header {
     max-width: 25rem;
   }
