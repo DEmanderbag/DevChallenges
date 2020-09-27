@@ -15,7 +15,7 @@
   /* Hover color */
   --link-hover: #ff6d5b;
   /* margin */
-  --mb-xl: 2rem;
+  --mb-xl: 1rem;
 }
 
 body {
@@ -34,6 +34,7 @@ a {
 img {
   display: block;
 }
+
 nav {
   margin-bottom: 3rem;
 }
@@ -62,7 +63,8 @@ section {
 }
 
 .section__image img {
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .description--header {
@@ -128,6 +130,7 @@ footer a {
     flex-direction: row;
   }
   .section__image {
+    margin: 0;
     margin-right: 4rem;
   }
 
