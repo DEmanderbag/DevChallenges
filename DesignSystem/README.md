@@ -1,6 +1,6 @@
 ## Design System Buttons Challenge
 
-Live version of a project can be found [here](https://designsystembuttons-1agz5qq58.vercel.app/ "Design System Buttons live demo")
+Live version of a project can be found [here](https://objective-davinci-e4f803.netlify.app/designsystem/ "Design System Buttons live demo")
 
 **Challenge:** Create a reusable button with all the states in the design and a page displaying all the states. You can work on the same project with other *`design system`* challenges. Use Front-end libraries like React or Vue. Don’t look at the existing solution. Fulfill user stories below:
 

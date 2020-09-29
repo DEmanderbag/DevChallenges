@@ -1,6 +1,6 @@
 ## My Gallery Challenge
 
-Live version of a project can be found [here](https://mygallery.demanderbag.vercel.app/ "My Gallery live demo")
+Live version of a project can be found [here](https://objective-davinci-e4f803.netlify.app/mygallery/ "My Gallery live demo")
 
 **Challenge:** Create a static page with HTML and CSS following the designs. You can give it your personal styles by using different images or text. Don’t look at the existing solution. Fulfill user stories below
 

@@ -1,6 +1,6 @@
 ## Recipe Page Challenge
 
-Live version of a project can be found [here](https://recipe-blog.vercel.app/ "Recipe Page live demo")
+Live version of a project can be found [here](https://objective-davinci-e4f803.netlify.app/recipepage/ "Recipe Page live demo")
 
 **Challenge:** Create a recipe page following the given design. You can use your own recipe and remember to put the source. The page should be responsive. Don’t look at existing solution. Fulfill user stories below:
 
