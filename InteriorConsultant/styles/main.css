@@ -265,9 +265,3 @@ footer a {
     border: none;
   }
 }
-
-@media (hover: hover) {
-  a:hover {
-    font-weight: 600;
-  }
-}
