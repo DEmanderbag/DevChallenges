@@ -17,22 +17,49 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--background-color);
+  padding: 0 1rem;
 }
 
 ul li {
   list-style: none;
 }
 
+ul li:not(:last-child) {
+  padding-bottom: 1rem;
+}
+
 li a {
   text-decoration: none;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.25rem;
+  padding: 0.5rem;
 }
 
 .new::after {
   font-style: italic;
-  margin-left: 1rem;
+
   content: "new";
-  font-size: 2rem;
+  font-size: 1.25rem;
   color: var(--badge);
+}
+
+@media (hover: hover) {
+  a:hover {
+    background: var(--badge);
+    border-radius: 10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  body {
+    padding: 0;
+  }
+
+  li a {
+    font-size: 2rem;
+  }
+  .new::after {
+    font-size: 2rem;
+    margin-left: 0.5rem;
+  }
 }
