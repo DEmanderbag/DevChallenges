@@ -227,6 +227,14 @@ footer a {
   nav {
     align-items: center;
   }
+  .section__image {
+    max-width: 80%;
+  }
+  .section__user {
+    width: 55%;
+    box-shadow: none;
+    transform: translate(40%, -3rem);
+  }
 }
 
 @media screen and (min-width: 980px) {
@@ -239,7 +247,7 @@ footer a {
   }
   header,
   section {
-    padding: 2rem 0;
+    padding: 2rem 3rem;
   }
   section {
     padding-top: 5rem;
@@ -253,15 +261,26 @@ footer a {
     margin-bottom: 2rem;
   }
   .section__image {
-    max-height: 35rem;
+    margin-left: auto;
+    max-height: 45rem;
   }
+
   .section__user {
     width: 60%;
     box-shadow: none;
-    transform: translate(60%, -3rem);
+    transform: translate(62%, -3rem);
   }
-
   footer {
     border: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  header,
+  section {
+    padding: 2rem 0;
+  }
+  section {
+    padding-top: 7rem;
   }
 }
