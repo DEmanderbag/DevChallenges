@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background-color: #181719;
+  --badge: #ff6d5b;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
+ul li {
+  list-style: none;
+}
+
+li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.new::after {
+  font-style: italic;
+  margin-left: 1rem;
+  content: "new";
+  font-size: 2rem;
+  color: var(--badge);
+}
