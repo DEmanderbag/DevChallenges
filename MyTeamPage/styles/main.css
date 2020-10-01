@@ -92,7 +92,8 @@ footer {
 }
 @media screen and (min-width: 700px) {
   body {
-    padding: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
     max-width: 980px;
     margin: 0 auto;
   }
