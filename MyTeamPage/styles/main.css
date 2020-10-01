@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --white: #ffffff;
+  --dark-black: #000000;
+  --light-gray: #a9a9a9;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 2rem 1rem;
+  color: var(--dark-black);
+}
+
+img {
+  display: block;
+}
+
+h1,
+.card__position {
+  font-family: "PT Serif", serif;
+}
+
+.team__info {
+  margin-bottom: 3rem;
+}
+.team__header {
+  margin-bottom: 1.5rem;
+}
+
+.team__about {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 5%;
+  grid-row: span 3;
+  gap: 0.5rem;
+}
+
+.card__image {
+  margin-bottom: 0.5rem;
+}
+.card__image img {
+  width: 100%;
+}
+
+.card__name {
+  font-weight: 600;
+}
+.card__position p {
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.card:nth-child(2n) {
+  transform: translateY(2.5rem);
+}

@@ -7,6 +7,7 @@
 :root {
   --background-color: #181719;
   --badge: #ff6d5b;
+  --wip-color: #2d9cdb;
 }
 
 body {
@@ -35,12 +36,19 @@ li a {
   padding: 0.5rem;
 }
 
-.new::after {
+.new::after,
+.wip::after {
   font-style: italic;
-
-  content: "new";
   font-size: 1.25rem;
+}
+.new::after {
+  content: "new";
   color: var(--badge);
+}
+
+.wip::after {
+  content: "wip";
+  color: var(--wip-color);
 }
 
 @media (hover: hover) {
@@ -58,7 +66,8 @@ li a {
   li a {
     font-size: 2rem;
   }
-  .new::after {
+  .new::after,
+  .wip::after {
     font-size: 2rem;
     margin-left: 0.5rem;
   }
