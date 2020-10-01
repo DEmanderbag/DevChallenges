@@ -8,12 +8,27 @@
   --white: #ffffff;
   --dark-black: #000000;
   --light-gray: #a9a9a9;
+
+  /* offset */
+  --offset-mobile: 2.5rem;
+  --offset-desktop: 5rem;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   margin: 2rem 1rem;
   color: var(--dark-black);
+}
+
+a {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--dark-black);
+  transition: 0.3s ease-out color;
+}
+
+a:hover {
+  color: var(--light-gray);
 }
 
 img {
@@ -41,6 +56,7 @@ h1,
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
+  padding-bottom: calc(3rem + var(--offset-mobile));
 }
 
 .card {
@@ -67,5 +83,38 @@ h1,
 }
 
 .card:nth-child(2n) {
-  transform: translateY(2.5rem);
+  transform: translateY(var(--offset-mobile));
+}
+
+footer {
+  text-align: center;
+  font-size: 0.75rem;
+}
+@media screen and (min-width: 700px) {
+  body {
+    padding: 3rem;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .team__info {
+    display: flex;
+    margin-bottom: 5rem;
+  }
+
+  .team__info h1 {
+    width: 50%;
+  }
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: calc(3rem + var(--offset-desktop));
+  }
+
+  .card:nth-child(2) {
+    transform: translateY(var(--offset-mobile));
+  }
+
+  .card:nth-child(5) {
+    transform: translateY(var(--offset-desktop));
+  }
 }
