@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* colors */
+  --primary: #2d9cdb;
+  --dark-green: #27ae60;
+  --pinkish-red: #eb5757;
+
+  /* Neutral colors */
+  --gray001: #828282;
+  --gray002: #e0e0e0;
+  --gray003: #bdbdbd;
+  --black001: #333333;
+  --black002: #4f4f4f;
+
+  /* Animation */
+  --customAnimation: cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+h1 {
+  font-weight: 500;
+  color: var(--black001);
+}
+
+p {
+  font-weight: 400;
+  color: var(--black002);
+}
+
+/* Header */
+/* Mobile navigation */
+.nav__mobile {
+  display: flex;
+}
+
+.menu {
+  margin-left: auto;
+}
