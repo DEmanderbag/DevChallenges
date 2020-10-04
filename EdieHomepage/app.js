@@ -1,14 +1,11 @@
 const menuBlock = document.querySelector(".menu");
-const openMenuBlock = document.querySelector(".menu__open");
-const menuClose = document.querySelector(".menu__close");
+const navLinks = document.querySelector(".nav__links");
+const links = document.querySelectorAll("nav__links li");
 
-function openMenu() {
-  openMenuBlock.style.display = "flex";
-}
+menuBlock.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
 
-function closeMenu() {
-  openMenuBlock.style.display = "none";
-}
-
-menuBlock.addEventListener("click", openMenu);
-menuClose.addEventListener("click", closeMenu);
+navLinks.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});

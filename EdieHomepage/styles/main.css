@@ -76,25 +76,12 @@ section {
 
 /* Header */
 /* Mobile navigation */
-.nav__mobile {
-  margin-bottom: var(--xx-large);
-}
-.nav__mobile,
-.nav__desktop {
-  display: flex;
-  align-items: center;
-}
 
 .nav__desktop {
   display: none;
 }
-.menu {
-  margin-left: auto;
-}
-
-.menu img,
-.menu__close img {
-  width: var(--large);
+.nav__mobile {
+  margin-bottom: var(--xx-large);
 }
 
 .logo a {
@@ -104,45 +91,59 @@ section {
   font-size: 1.5rem;
 }
 
-.menu__open {
-  display: none;
-  justify-content: center;
+.nav__mobile {
+  display: flex;
   align-items: center;
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: var(--gray002);
-  animation: opening 0.5s var(--customAnimation) normal;
-  text-align: center;
-  z-index: 10;
 }
 
-.menu__open li:not(:last-child) {
+.menu {
+  margin-left: auto;
+  z-index: 11;
+}
+
+.line {
+  width: 1.75rem;
+  height: 3px;
+  background-color: var(--black001);
+  position: relative;
+}
+
+.line:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.nav__links {
+  z-index: 10;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  pointer-events: none;
+  background: var(--gray002);
+  clip-path: circle(50px at 105% 10%);
+  -webkit-clip-path: circle(50px at 105% -10%);
+  transition: all 1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
+
+.nav__links.open {
+  clip-path: circle(1000px at 105% -10%);
+  -webkit-clip-path: circle(1000px at 105% -10%);
+  pointer-events: all;
+}
+
+.nav__links li {
   margin-bottom: var(--medium);
 }
 
-.menu__open a {
-  font-weight: 500;
-  font-size: 1.5rem;
+.nav__links a {
   color: var(--black001);
-}
-
-.menu__close {
-  position: absolute;
-  top: var(--medium);
-  right: var(--medium);
-}
-
-/* Menu open animation  */
-@keyframes opening {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0%);
-  }
+  font-weight: 600;
 }
 
 /* Hero section */
