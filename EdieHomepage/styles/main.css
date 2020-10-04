@@ -543,6 +543,7 @@ footer .signup {
     width: 20rem;
     border: 1px solid transparent;
     cursor: pointer;
+    transition: 0.3s var(--customAnimation) all;
   }
 
   .card__link a {
