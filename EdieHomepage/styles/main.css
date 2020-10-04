@@ -29,6 +29,7 @@
   --large: 1.5rem;
   --x-large: 2rem;
   --xx-large: 3.5rem;
+  --desktop-large: 4.5rem;
 }
 
 body {
@@ -42,6 +43,7 @@ img {
 
 a {
   text-decoration: none;
+  transition: 0.2s var(--customAnimation) color;
 }
 
 ul li {
@@ -377,9 +379,9 @@ input[type="text"] {
 }
 
 .user__image {
-  border-radius: 20px;
-  width: 70px;
-  height: 70px;
+  border-radius: 10px;
+  width: 60px;
+  height: 60px;
   overflow: hidden;
   margin-right: var(--medium);
 }
@@ -450,4 +452,196 @@ footer .signup {
 
 .created a {
   color: var(--gray005);
+}
+
+@media screen and (min-width: 800px) {
+  /* Navigation */
+  .nav__mobile {
+    display: none;
+  }
+
+  .nav__desktop {
+    display: flex;
+    align-items: center;
+    padding: var(--large);
+    margin-bottom: var(--xx-large);
+  }
+  .links__desktop {
+    margin-left: auto;
+    display: flex;
+  }
+
+  .links__desktop a {
+    color: var(--black001);
+    font-weight: 500;
+  }
+  .links__desktop li:not(:last-child) {
+    margin-right: var(--x-large);
+  }
+
+  /* Hero section */
+  .hero__title,
+  .hero__mission,
+  .signup {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .hero__title h1,
+  .hero__mission h1 {
+    font-size: 2rem;
+    width: 22rem;
+  }
+
+  .hero__mission h1 {
+    width: 15rem;
+  }
+
+  .hero__mission p {
+    font-size: 1rem;
+    width: 22rem;
+  }
+  .hero__image {
+    height: 20rem;
+  }
+
+  .hero__image img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .hero__title,
+  .hero__mission,
+  .signup {
+    width: 60%;
+    padding-left: 5rem;
+    margin-bottom: var(--x-large);
+  }
+
+  /* Sections */
+  header,
+  .service,
+  .work,
+  .team,
+  .user__review,
+  .footer__group {
+    padding: 3rem 3rem var(--desktop-large) 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Service section */
+  .service__title {
+    width: 15rem;
+  }
+  .card__wrapper {
+    display: flex;
+  }
+  .card {
+    padding: 2rem;
+    margin: 0 auto;
+    width: 20rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  .card__link a {
+    transition: 0.3s var(--customAnimation) all;
+  }
+  .card:not(:last-child) {
+    margin-right: var(--medium);
+  }
+
+  /* Work section */
+  .work h1 {
+    width: 17rem;
+  }
+  .work__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .work__card {
+    cursor: pointer;
+    width: 49%;
+    margin-bottom: 5rem;
+  }
+
+  .work__image {
+    height: 30rem;
+    border-radius: 20px;
+    transition: 0.5s var(--customAnimation) all;
+  }
+
+  .work__card:nth-child(1),
+  .work__card:nth-child(3) {
+    transform: translateY(7rem);
+    margin-right: var(--medium);
+  }
+
+  /* Team section*/
+  .team {
+    flex-direction: row;
+  }
+  .team__about {
+    justify-content: center;
+  }
+  .team__about h1 {
+    width: 60%;
+  }
+
+  .team__member {
+    cursor: pointer;
+  }
+
+  .team__member img {
+    transition: 0.3s var(--customAnimation) all;
+  }
+  /* User review */
+  .user__review h2 {
+    width: 40rem;
+  }
+
+  .user__review {
+    margin-bottom: var(--xx-large);
+  }
+
+  /* Footer */
+  footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer__group {
+    display: flex;
+    justify-content: space-between;
+  }
+  .signup {
+    width: 33%;
+  }
+
+  .footer__group {
+    width: 100%;
+  }
+}
+
+@media (hover: hover) {
+  nav a:hover,
+  footer a:hover {
+    color: var(--primary);
+  }
+  .card:hover {
+    box-shadow: 0px 10px 30px rgba(51, 51, 51, 0.1), 0px 12px 32px rgba(51, 51, 51, 0.1);
+  }
+
+  .card__link a:hover {
+    background-color: var(--primary);
+    color: var(--white001);
+  }
+
+  .work__image:hover {
+    transform: scale(1.02);
+  }
+  .team__member img:hover {
+    transform: scale(1.02);
+  }
 }

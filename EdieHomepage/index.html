@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edie Homepage</title>
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="shortcut icon" href="images/devchallenges.png" />
+  <link rel="shortcut icon" href="assets/images/devchallenges.png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@800&display=swap"
@@ -38,7 +38,7 @@
       <div class="logo">
         <a href="index.html">Edie</a>
       </div>
-      <ul class="menu">
+      <ul class="links__desktop">
         <li><a href="#hero">Home</a></li>
         <li><a href="#service">Services</a></li>
         <li><a href="#work">Out Works</a></li>
@@ -74,49 +74,54 @@
 
   <section class="service" id="service">
     <h1 class="service__title">We offer high demand services </h1>
-    <div class="card">
-      <div class="card__image card--primary">
-        <img src="assets/icons/create-white-18dp.svg" alt="">
+    <div class="card__wrapper">
+      <div class="card">
+        <div class="card__image card--primary">
+          <img src="assets/icons/create-white-18dp.svg" alt="">
+        </div>
+        <div class="card__title">
+          <h1>UI/UX Design</h1>
+        </div>
+        <div class="card__description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus ac nulla
+            consequat
+            aliquet id quis turpis.</p>
+        </div>
+        <div class="card__link">
+          <a href="#">Get started</a>
+        </div>
       </div>
-      <div class="card__title">
-        <h1>UI/UX Design</h1>
+      <div class="card">
+        <div class="card__image card--secondary">
+          <img src="assets/icons/code-white-18dp.svg" alt="">
+        </div>
+        <div class="card__title">
+          <h1>Front End</h1>
+        </div>
+        <div class="card__description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus ac nulla
+            consequat
+            aliquet id quis turpis.</p>
+        </div>
+        <div class="card__link">
+          <a href="#">Get started</a>
+        </div>
       </div>
-      <div class="card__description">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus ac nulla consequat
-          aliquet id quis turpis.</p>
-      </div>
-      <div class="card__link">
-        <a href="#">Get started</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card__image card--secondary">
-        <img src="assets/icons/code-white-18dp.svg" alt="">
-      </div>
-      <div class="card__title">
-        <h1>Front End</h1>
-      </div>
-      <div class="card__description">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus ac nulla consequat
-          aliquet id quis turpis.</p>
-      </div>
-      <div class="card__link">
-        <a href="#">Get started</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card__image card--danger">
-        <img src="assets/icons/storage-white-18dp.svg" alt="">
-      </div>
-      <div class="card__title">
-        <h1>Back End</h1>
-      </div>
-      <div class="card__description">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus ac nulla consequat
-          aliquet id quis turpis.</p>
-      </div>
-      <div class="card__link">
-        <a href="#">Get started</a>
+      <div class="card">
+        <div class="card__image card--danger">
+          <img src="assets/icons/storage-white-18dp.svg" alt="">
+        </div>
+        <div class="card__title">
+          <h1>Back End</h1>
+        </div>
+        <div class="card__description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus ac nulla
+            consequat
+            aliquet id quis turpis.</p>
+        </div>
+        <div class="card__link">
+          <a href="#">Get started</a>
+        </div>
       </div>
     </div>
   </section>
@@ -124,37 +129,35 @@
 
   <section class="work" id="work">
     <h1>Good design means good business</h1>
-    <div class="work__card">
-      <div class="work__image">
-        <img src="assets/images/smarthome.jpg" alt="">
+    <div class="work__wrapper">
+      <div class="work__card">
+        <div class="work__image">
+          <img src="assets/images/smarthome.jpg" alt="">
+        </div>
+        <p>Full stack application</p>
+        <h3>Smart home dashboard</h3>
       </div>
-      <p>Full stack application</p>
-      <h3>Smart home dashboard</h3>
-    </div>
-    <div class="work__card">
-      <div class="work__image">
-        <img src="assets/images/onboard.png" alt="">
+      <div class="work__card">
+        <div class="work__image">
+          <img src="assets/images/onboard.png" alt="">
+        </div>
+        <p>UX/UI design</p>
+        <h3>Onboard application</h3>
       </div>
-      <p>UX/UI design</p>
-      <h3>Onboard application</h3>
-    </div>
-    <div class="work__card">
-      <div class="work__image">
-        <img src="assets/images/booking.png" alt="">
+      <div class="work__card">
+        <div class="work__image">
+          <img src="assets/images/booking.png" alt="">
+        </div>
+        <p>Mobile application</p>
+        <h3>Booking system</h3>
       </div>
-      <p>Mobile application</p>
-      <h3>Booking system</h3>
-    </div>
-    <div class="work__card">
-      <div class="work__image">
-        <img src="assets/images/juice-product.png" alt="">
+      <div class="work__card">
+        <div class="work__image">
+          <img src="assets/images/juice-product.png" alt="">
+        </div>
+        <p>Front End application</p>
+        <h3>Juice product homepage</h3>
       </div>
-      <p>Front End application</p>
-      <h3>Juice product homepage</h3>
-    </div>
-    <div class="see">
-      <a href="#">see more</a>
-      <p>-></p>
     </div>
   </section>
 
@@ -196,26 +199,30 @@
   </section>
 
   <footer id="contact">
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#service">Services</a></li>
-      <li><a href="#work">Out Works</a></li>
-      <li><a href="#clients">Clients</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="logo logo--light">
-      <a href="index.html">Edie</a>
-    </div>
-    <div class="social">
-      <img src="assets/icons/instagram.svg" alt="">
-      <img src="assets/icons/linkedin.svg" alt="">
-      <img src="assets/icons/twitter.svg" alt="">
-    </div>
-    <div class="signup">
-      <p class="signup__question">Want us to contact you?</p>
-      <div class="signup__group signup--footer">
-        <input type="text" name="" id="" placeholder="Email">
-        <p class="button">Join</p>
+    <div class="footer__group">
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#service">Services</a></li>
+        <li><a href="#work">Out Works</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="footer__social">
+        <div class="logo logo--light">
+          <a href="index.html">Edie</a>
+        </div>
+        <div class="social">
+          <img src="assets/icons/instagram.svg" alt="">
+          <img src="assets/icons/linkedin.svg" alt="">
+          <img src="assets/icons/twitter.svg" alt="">
+        </div>
+      </div>
+      <div class="signup">
+        <p class="signup__question">Want us to contact you?</p>
+        <div class="signup__group signup--footer">
+          <input type="text" name="" id="" placeholder="Email">
+          <p class="button">Join</p>
+        </div>
       </div>
     </div>
     <div class="created">
