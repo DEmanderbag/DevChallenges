@@ -22,12 +22,18 @@
 
   /* Animation */
   --customAnimation: cubic-bezier(0.465, 0.183, 0.153, 0.946);
+
+  /* Space */
+  --small: 0.5rem;
+  --medium: 1rem;
+  --large: 1.5rem;
+  --x-large: 2rem;
+  --xx-large: 3.5rem;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
-  padding: 1rem;
 }
 
 img {
@@ -44,7 +50,8 @@ ul li {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-weight: 500;
   color: var(--black001);
 }
@@ -54,14 +61,28 @@ p {
   color: var(--black002);
 }
 
+header,
+.service,
+.work,
+.team,
+.user__review {
+  padding: 1rem 1rem 0 1rem;
+}
+
+header,
+section {
+  margin-bottom: var(--xx-large);
+}
+
 /* Header */
 /* Mobile navigation */
 .nav__mobile {
-  margin-bottom: 2rem;
+  margin-bottom: var(--xx-large);
 }
 .nav__mobile,
 .nav__desktop {
   display: flex;
+  align-items: center;
 }
 
 .nav__desktop {
@@ -73,13 +94,14 @@ p {
 
 .menu img,
 .menu__close img {
-  width: 1.5rem;
+  width: var(--large);
 }
 
 .logo a {
   font-family: "Heebo", sans-serif;
   font-weight: 800;
   color: var(--black001);
+  font-size: 1.5rem;
 }
 
 .menu__open {
@@ -98,7 +120,7 @@ p {
 }
 
 .menu__open li:not(:last-child) {
-  margin-bottom: 1rem;
+  margin-bottom: var(--medium);
 }
 
 .menu__open a {
@@ -109,8 +131,8 @@ p {
 
 .menu__close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: var(--medium);
+  right: var(--medium);
 }
 
 /* Menu open animation  */
@@ -131,8 +153,12 @@ p {
 .hero__title,
 .hero__mission,
 .signup {
-  padding: 0 2rem;
-  margin-bottom: 1rem;
+  padding: 0 var(--x-large);
+  margin-bottom: var(--medium);
+}
+
+.hero__mission {
+  margin-bottom: var(--x-large);
 }
 .hero h1 {
   font-size: 1.5rem;
@@ -150,25 +176,21 @@ p {
 
 .hero__image {
   width: 100%;
-  height: 8rem;
+  height: 10rem;
   border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--large);
 }
 
 .hero__image img {
   height: 100%;
-  object-fit: cover;
 }
 
 .hero__mission h1 {
   width: 80%;
-  margin-bottom: 1rem;
+  margin-bottom: var(--medium);
 }
 
-.signup {
-  margin-bottom: 3rem;
-}
 .signup__question {
   color: var(--gray001);
   font-size: 0.75rem;
@@ -178,7 +200,7 @@ p {
 input[type="text"] {
   border: none;
   background-color: var(--gray004);
-  padding: 1rem;
+  padding: var(--medium);
   border-radius: 10px;
   width: 100%;
   font-size: 1rem;
@@ -195,24 +217,24 @@ input[type="text"] {
   background-color: var(--primary);
   border-radius: 10px;
   padding: 0.5rem 1.25rem;
-  color: var(--white001);
+  color: var(--gray004);
 }
 /* Ending header */
 
 /* Card/Service Section */
-.service h1 {
-  margin-bottom: 1rem;
+.service__title {
+  margin-bottom: var(--x-large);
 }
-
 .card {
   border-radius: 20px;
   background-color: var(--white001);
-  padding: 1rem 2rem;
-  margin-bottom: 3rem;
+  padding: var(--medium) var(--x-large);
+  margin-bottom: var(--xx-large);
 }
 
 .card h1 {
   font-weight: 700;
+  margin-bottom: var(--large);
 }
 
 .card__image {
@@ -225,7 +247,7 @@ input[type="text"] {
 }
 
 .card__image img {
-  width: 1.5rem;
+  width: var(--large);
 }
 
 .card--primary {
@@ -242,27 +264,25 @@ input[type="text"] {
 .card__image,
 .card__title,
 .card__description {
-  margin-bottom: 1rem;
+  margin-bottom: var(--large);
 }
 
 .card__link a {
   border-radius: 10px;
-  padding: 0.5rem;
+  padding: var(--small);
   background-color: #e0e0e0;
   color: var(--gray001);
 }
 /* Ending Card/Service Section */
 
 /* Work Section */
-.work {
-  margin-bottom: 3rem;
-}
 .work h1 {
-  margin-bottom: 2rem;
+  margin-bottom: var(--xx-large);
   width: 90%;
 }
+
 .work__card {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .work__card p {
@@ -275,7 +295,7 @@ input[type="text"] {
   overflow: hidden;
   border-radius: 20px;
   object-fit: cover;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--small);
 }
 
 .work__image img {
@@ -287,7 +307,7 @@ input[type="text"] {
 }
 
 .see p {
-  margin-left: 0.5rem;
+  margin-left: var(--small);
 }
 
 .see a {
@@ -296,9 +316,6 @@ input[type="text"] {
 /* Ending Work section */
 
 /* Start of team section */
-.team {
-  margin-bottom: 3rem;
-}
 .team,
 .team__about {
   display: flex;
@@ -306,18 +323,20 @@ input[type="text"] {
 }
 
 .team__about {
-  margin-bottom: 2rem;
+  margin-bottom: var(--x-large);
 }
+
 .team__meet {
   font-weight: 500;
   order: -1;
   color: var(--pinkish-red);
-  margin-bottom: 1rem;
+  margin-bottom: var(--small);
 }
 
 .team h1 {
-  width: 60%;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  width: 80%;
+  margin-bottom: var(--medium);
 }
 
 .team__info {
@@ -337,50 +356,65 @@ input[type="text"] {
 
 .first--member {
   transform: translateY(80px);
-  margin-right: 0.5rem;
+  margin-right: var(--small);
 }
 
 .second--member {
-  margin-bottom: 0.5rem;
-  margin-right: 1rem;
+  margin-bottom: var(--small);
+  margin-right: var(--medium);
 }
 /* Ending team section */
 
 /* Starting user review section */
-.user__review {
-  margin-bottom: 3rem;
-}
-.user__review h3 {
-  margin-bottom: 2rem;
+.user__review h2 {
+  margin-bottom: var(--x-large);
 }
 
 .user__profile {
   display: flex;
+  align-items: center;
 }
+
 .user__image {
   border-radius: 20px;
   width: 70px;
   height: 70px;
   overflow: hidden;
-  margin-right: 1rem;
+  margin-right: var(--medium);
 }
 
 .user__image img {
   width: 100%;
 }
+
+.user__name,
+.user__title {
+  font-weight: 500;
+}
+.user__name {
+  font-size: 1.25rem;
+  color: var(--black001);
+  margin-bottom: var(--small);
+}
+
+.user__title {
+  color: var(--gray001);
+}
 /* Ending user review section */
 
 /* Starting of Footer */
 footer {
+  padding: var(--x-large);
   background-color: var(--dark-blue);
 }
 
 footer ul {
-  margin-bottom: 2rem;
+  margin-bottom: var(--x-large);
 }
 
-.footer li:not(:last-child) {
-  margin-bottom: 1rem;
+footer li a {
+  display: block;
+  padding-bottom: var(--small);
 }
 
 footer a {
@@ -389,25 +423,28 @@ footer a {
 
 .logo--light a {
   color: var(--white001);
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .social {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-bottom: 3rem;
+  padding-bottom: var(--xx-large);
+}
+
+.social img:not(:last-child) {
+  margin-right: var(--small);
 }
 
 footer .signup {
-  margin: 0;
-  padding-bottom: 3rem;
+  padding: 0;
+  margin-bottom: var(--xx-large);
 }
 
 .created {
   text-align: center;
-  font-size: 0.875rem;
-  padding-bottom: 1rem;
+  font-size: 0.75rem;
 }
 
 .created a {
