@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors */
+  --primary: #f2994a;
+  /* Neutral colors */
+  --black001: #333333;
+  --black002: #4e5150;
+  --black003: #4f4f4f;
+  --gray001: #bdbdbd;
+  --gray002: #828282;
+  --gray003: #e0e0e0;
+  --white001: #ffffff;
+  --white002: #f2f2f2;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  max-width: 1080px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-weight: 600;
+}
+
+img {
+  display: block;
+}
+
+h1 {
+  color: var(--black002);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+p,
+span {
+  color: var(--black001);
+}
+
+.receipt__view {
+  background-color: var(--white002);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.receipt__item {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.item__image {
+  overflow: hidden;
+  width: 8rem;
+  border-radius: 10px;
+  margin-right: 1rem;
+}
+
+.item__image img {
+  width: 100%;
+}
+
+.item__details {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.item__name,
+.item__price {
+  color: var(--black002);
+}
+
+.item__name {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.item__price {
+  display: flex;
+  flex: 1;
+  font-size: 0.75rem;
+}
+
+.item__price p {
+  color: var(--black002);
+  text-decoration: line-through;
+}
+
+.sale__price {
+  color: var(--primary);
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.item__counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--gray002);
+  padding: 0.75rem;
+  border-radius: 10px;
+}
+
+.item__remove,
+.item__add {
+  background-color: var(--gray003);
+  border-radius: 3px;
+}
+.item__quantity {
+  margin: 0 auto;
+}
+
+.receipt__price {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.shipping__price,
+.total__price {
+  display: flex;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--gray001);
+}
+
+.shipping__price p,
+.total__price p {
+  margin-left: auto;
+  color: var(--black001);
+}
