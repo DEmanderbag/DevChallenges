@@ -78,9 +78,69 @@
           </div>
         </div>
       </div>
-      <!-- <form action="#" class="form__view">
-
-      </form> -->
+      <form action="#" class="form__view">
+        <div class="contact__group">
+          <h3>Contact information</h3>
+          <div class="email__group form__group">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" class="form__input"
+              placeholder="Enter your email...">
+            <img src="assets/icons/email.svg" alt="" class="form__image">
+          </div>
+          <div class="phone__group form__group">
+            <label for="tel">Phone</label>
+            <input type="tel" name="tel" id="tel" class="form__input"
+              placeholder="Enter your phone...">
+            <img src="assets/icons/call.svg" alt="" class="form__image">
+          </div>
+        </div>
+        <div class="address__group">
+          <h3>Shipping address</h3>
+          <div class="name__group form__group">
+            <label for="name">Full name</label>
+            <input type="text" name="text" id="name" class="form__input" placeholder="Your name...">
+            <img src="assets/icons/account.svg" alt="" class="form__image">
+          </div>
+          <div class="address__group form__group">
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address" class="form__input"
+              placeholder="Your address...">
+            <img src="assets/icons/home.svg" alt="" class="form__image">
+          </div>
+          <div class="city__group form__group">
+            <label for="city">City</label>
+            <input type="text" name="city" id="city" class="form__input" placeholder="Your city...">
+            <img src="assets/icons/location.svg" alt="" class="form__image">
+          </div>
+          <div class="wrapper__group">
+            <div class="country__group form__group">
+              <label for="country">Country</label>
+              <select name="country" id="country" class="form__input">
+                <option value="select">Country...</option>
+                <option value="serbia">Serbia</option>
+                <option value="china">China</option>
+                <option value="france">France</option>
+                <option value="italy">Italy</option>
+                <option value="russia">Russia</option>
+              </select>
+              <img src="assets/icons/globe.svg" alt="" class="form__image">
+            </div>
+            <div class="postal__group form__group">
+              <label for="postalcode">Postal code</label>
+              <input type="text" name="postalcode" id="postalcode" class="form__input"
+                placeholder="Postal code...">
+              <img src="assets/icons/mailbox.svg" alt="" class="form__image">
+            </div>
+          </div>
+        </div>
+        <div class="save__group">
+          <input type="checkbox" name="save" id="save">
+          <label for="save">Save this information for next time</label>
+        </div>
+        <div class="cta">
+          <button type="button">Continue</button>
+        </div>
+      </form>
     </div>
   </div>
 </body>
