@@ -20,9 +20,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  max-width: 1080px;
   min-height: 100vh;
-  margin: 0 auto;
   padding: 2rem 1rem;
   font-weight: 600;
 }
@@ -37,6 +35,9 @@ h1 {
   margin-bottom: 1rem;
 }
 
+h3 {
+  color: var(--black002);
+}
 p,
 span {
   color: var(--black001);
@@ -230,4 +231,41 @@ footer a {
 
 footer a:hover {
   color: var(--primary);
+}
+
+/* Desktop view */
+@media screen and (min-width: 800px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0 0;
+  }
+  .section {
+    flex: 1;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  form {
+    width: 100%;
+    margin-right: 5rem;
+  }
+
+  .receipt__view {
+    order: 1;
+    max-width: 50rem;
+    align-self: flex-start;
+  }
+
+  button {
+    cursor: pointer;
+    transition: 0.3s ease-out background-color;
+  }
+  button:hover {
+    background-color: royalblue;
+  }
 }
