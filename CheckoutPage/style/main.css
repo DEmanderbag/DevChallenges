@@ -233,6 +233,14 @@ footer a:hover {
   color: var(--primary);
 }
 
+/* JavaScript error classes */
+.error--form {
+  border: 3px solid red;
+}
+
+.error--message {
+}
+
 /* Desktop view */
 @media screen and (min-width: 800px) {
   body {
@@ -250,6 +258,11 @@ footer a:hover {
     justify-content: space-between;
   }
 
+  .item__add,
+  .item__remove {
+    cursor: pointer;
+  }
+
   form {
     width: 100%;
     margin-right: 5rem;
@@ -257,7 +270,7 @@ footer a:hover {
 
   .receipt__view {
     order: 1;
-    max-width: 50rem;
+    min-width: 20rem;
     align-self: flex-start;
   }
 
