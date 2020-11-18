@@ -19,6 +19,7 @@
   /* margin*/
   --margin-small: 0.5rem;
   --margin-medium: 1rem;
+  --margin-large: 1.5rem;
 }
 
 body {
@@ -32,13 +33,18 @@ img {
   display: block;
 }
 
-.profile__card {
+.card {
   background-color: var(--white001);
   border-radius: var(--border-radius);
   padding: 1rem;
   box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.12);
+  margin-bottom: var(--margin-medium);
 }
 
+/* Profile card styles */
+.profile__card {
+  margin-bottom: var(--margin-medium);
+}
 .profile__avatar {
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -49,6 +55,7 @@ img {
 
 .profile__avatar img {
   width: 100%;
+  object-fit: cover;
 }
 
 .profile__info {
@@ -79,4 +86,128 @@ img {
 .contact__email img,
 .contact__phone img {
   margin-right: var(--margin-small);
+}
+
+/* Skills cards styles */
+.skills {
+  margin-bottom: var(--margin-medium);
+}
+.skills__card h4 {
+  text-transform: uppercase;
+  margin-bottom: var(--margin-medium);
+}
+
+.tech__skill {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--margin-medium);
+}
+
+.tech__scale {
+  margin-left: auto;
+  border-radius: 7px;
+  width: 60%;
+  height: 0.5rem;
+  background-color: var(--gray003);
+}
+
+.tech__percent {
+  height: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--progress);
+}
+
+/* Different levels for progress bar */
+.react {
+  width: 60%;
+}
+
+.javascript {
+  width: 83%;
+}
+
+.css {
+  width: 95%;
+}
+
+.vue {
+  width: 56%;
+}
+
+.redux {
+  width: 75%;
+}
+
+.reactnative {
+  width: 93%;
+}
+
+.figma {
+  width: 60%;
+}
+
+.photoshop {
+  width: 83%;
+}
+
+/* Styles for project cards */
+
+/* .project__card {
+  margin-bottom: var(--margin-large);
+} */
+.project__cover {
+  width: 100%;
+  height: 15rem;
+  margin-bottom: var(--margin-medium);
+  border-radius: var(--border-radius);
+  padding-top: 56.25%;
+  overflow: hidden;
+  position: relative;
+}
+
+.project__cover img {
+  width: 100%;
+  height: 15rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.project__tag {
+  display: flex;
+}
+
+.project__tag > p {
+  margin-right: var(--margin-small);
+  margin-bottom: var(--margin-medium);
+}
+
+.project__title {
+  margin-bottom: var(--margin-medium);
+}
+
+.project__details {
+  margin-bottom: var(--margin-large);
+}
+
+button {
+  border: none;
+
+  margin-right: var(--margin-small);
+}
+
+button a {
+  text-decoration: none;
+  color: var(--progress);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--progress);
+  background-color: var(--white001);
+  padding: 0.5rem 2rem;
+}
+
+.btn--primary a {
+  background-color: var(--progress);
+  color: var(--white001);
+  border: none;
 }
