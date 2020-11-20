@@ -501,7 +501,7 @@ footer a {
   }
 
   .blog {
-    transform: translateY(-7rem);
+    transform: translateY(-3rem);
     grid-row: 7;
     grid-column: 5 / span 8;
   }
@@ -511,6 +511,10 @@ footer a {
     grid-column: 1 / span 4;
   }
 
+  .blog__cover,
+  .blog__image {
+    height: 15rem;
+  }
   .hobby {
     transform: translateY(2rem);
     grid-column: 1 / span 4;
