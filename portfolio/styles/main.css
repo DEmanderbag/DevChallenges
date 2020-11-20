@@ -14,6 +14,7 @@
   --gray005: #e0e0e0;
   --gray006: #a9a9a9;
   --primary: #5c94e1;
+  --primary-hover: #cedef6;
   --progress: rgba(47, 128, 237, 70%);
 
   /* Border radius */
@@ -91,6 +92,8 @@ p {
 
 .contact__email,
 .contact__phone {
+  transition: 0.2s ease-out color;
+  cursor: pointer;
   display: flex;
   align-items: center;
   margin-bottom: var(--margin-small);
@@ -225,6 +228,7 @@ button a {
   border: 1px solid var(--progress);
   background-color: var(--white001);
   padding: 0.5rem 2rem;
+  transition: 0.2s ease-out all;
 }
 
 .btn--primary a {
@@ -329,9 +333,7 @@ section {
 }
 
 /* Styles for hobby section */
-.hobby {
-  margin-bottom: var(--margin-large);
-}
+.hobby,
 .hobby__item {
   margin-bottom: var(--margin-large);
 }
@@ -357,7 +359,28 @@ footer {
 footer a {
   border-top: 1px solid var(--gray006);
   padding-top: 0.5rem;
+  font-weight: 600;
   text-decoration: none;
   font-size: 0.75rem;
   color: var(--gray006);
+  transition: 0.2s ease-out color;
+}
+
+/* Hover states */
+@media (hover: hover) {
+  button a:hover {
+    color: var(--primary-hover);
+    border-color: var(--primary-hover);
+  }
+
+  .btn--primary a:hover {
+    background-color: var(--primary-hover);
+    color: var(--primary);
+  }
+
+  .contact__email:hover,
+  .contact__phone:hover,
+  footer a:hover {
+    color: var(--primary);
+  }
 }
