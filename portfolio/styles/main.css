@@ -412,6 +412,7 @@ footer a {
 
   .experience {
     grid-column: span 3;
+    grid-row: 4;
   }
 
   .experience__logo {
@@ -425,7 +426,8 @@ footer a {
 
   .blog {
     grid-column: span 3;
-    grid-row: 9;
+    grid-row: 8;
+    transform: translateY(-2rem);
   }
 
   footer {
@@ -444,10 +446,6 @@ footer a {
     max-width: 1250px;
     margin: 0 auto;
   }
-
-  /* .card {
-    margin: 0;
-  } */
 
   .profile__card {
     grid-column: 1 / span 4;
