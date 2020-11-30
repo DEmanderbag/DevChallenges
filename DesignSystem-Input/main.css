@@ -228,6 +228,16 @@ textarea::placeholder {
   font-weight: bold;
 }
 
+.credit {
+  font-size: 0.875rem;
+  color: var(--gray003);
+}
+
+.credit a {
+  font-weight: bold;
+  color: var(--primary);
+}
+
 @media screen and (min-width: 800px) {
   body {
     display: flex;
