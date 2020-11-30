@@ -227,3 +227,44 @@ textarea::placeholder {
   color: var(--gray004);
   font-weight: bold;
 }
+
+@media screen and (min-width: 800px) {
+  body {
+    display: flex;
+  }
+
+  .nav__group--mobile {
+    display: none;
+  }
+
+  .nav__menu--close {
+    display: none;
+  }
+
+  nav {
+    transform: translateX(0);
+    width: 20rem;
+    height: 100%;
+    position: relative;
+  }
+
+  .nav__logo {
+    margin: 0;
+  }
+  .nav__group {
+    justify-content: flex-start;
+    padding-left: 3rem;
+  }
+
+  .nav__list {
+    width: 100%;
+    padding-left: 3rem;
+  }
+  .nav__item {
+    text-align: left;
+  }
+
+  section {
+    width: 100%;
+  }
+}
