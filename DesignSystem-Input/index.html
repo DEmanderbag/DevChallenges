@@ -38,8 +38,150 @@
       </ul>
     </nav>
   </header>
+  <section>
+    <h2>Inputs</h2>
+    <div class="input__group">
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--main">&lt;Input /&gt;</p>
+        </div>
+        <p class="label__text">Label</p>
+        <input type="text" placeholder="Placeholder">
+      </div>
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--secondary">&:hover</p>
+        </div>
+        <p class="label__text">Label</p>
+        <input type="text" placeholder="Placeholder">
+      </div>
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--secondary">&:focus</p>
+        </div>
+        <p class="label__text label__text--primary">Label</p>
+        <input type="text" class="input--primary" placeholder="Placeholder">
+      </div>
+    </div>
 
-  <script src="app.js"></script>
+    <div class="input__group">
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--main">&lt;Input error /&gt;</p>
+        </div>
+        <p class="label__text label__text--error">Label</p>
+        <input type="text" class="input--error" placeholder="Placeholder">
+      </div>
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--secondary">&:hover</p>
+        </div>
+        <p class="label__text">Label</p>
+        <input type="text" placeholder="Placeholder">
+      </div>
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--secondary">&:focus</p>
+        </div>
+        <p class="label__text label__text--error">Label</p>
+        <input type="text" class="input--error" placeholder="Placeholder">
+      </div>
+    </div>
+
+
+    <div class="input__group">
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--main">&lt;Input helperText="Some interesting text" /&gt;</p>
+        </div>
+        <p class="label__text">Label</p>
+        <input type="text" placeholder="Placeholder">
+        <p class="helper__text">Some interesting text</p>
+      </div>
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--main">&lt;Input helperText="Some interesting text" error/&gt;
+          </p>
+        </div>
+        <p class="label__text label__text--error">Label</p>
+        <input type="text" class="input--error" placeholder="Placeholder">
+        <p class="helper__text helper__text--error">Some interesting text</p>
+      </div>
+    </div>
+
+    <div class="input__group">
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--main">&lt;Input startIcon /&gt;</p>
+        </div>
+        <p class="label__text">Label</p>
+        <div class="input__icon">
+          <input type="text" class="input__icon--start" placeholder="Placeholder">
+          <img class="input__icons input__icons--start" src="icons/call.svg" alt="phone icon">
+        </div>
+      </div>
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--main">&lt;Input endIcon /&gt;
+          </p>
+        </div>
+        <p class="label__text">Label</p>
+        <div class="input__icon">
+          <input type="text" class="input__icon--end" placeholder="Placeholder">
+          <img class="input__icons input__icons--end" src="icons/lock.svg" alt="lock icon">
+        </div>
+      </div>
+    </div>
+
+    <div class="input__group">
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--main">&lt;Input value="text" /&gt;</p>
+        </div>
+        <p class="label__text">Label</p>
+        <input type="text" class="input__text" placeholder="Text">
+      </div>
+    </div>
+
+
+    <div class="input__group">
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--main">&lt;Input size="sm" /&gt;</p>
+        </div>
+        <p class="label__text">Label</p>
+        <input type="text" class="input--sm" placeholder="Placeholder">
+      </div>
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--main">&lt;Input size="md" /&gt;</p>
+        </div>
+        <p class="label__text">Label</p>
+        <input type="text" placeholder="Placeholder">
+      </div>
+    </div>
+
+    <div class="input__group">
+      <div class="input__item input__item--full">
+        <div class="input__state">
+          <p class="input__state--main">&lt;Input fullWidth /&gt;</p>
+        </div>
+        <p class="label__text">Label</p>
+        <input type="text" class="input__text input--full" placeholder="Text">
+      </div>
+    </div>
+
+    <div class="input__group">
+      <div class="input__item">
+        <div class="input__state">
+          <p class="input__state--main">&lt;Input multiLine row="4" /&gt;</p>
+        </div>
+        <p class="label__text">Label</p>
+        <textarea rows="4" cols="27" class="input__text" placeholder="Placeholder"></textarea>
+      </div>
+    </div>
+  </section>
+  <script src="app.js" defer></script>
 </body>
 
 </html>
