@@ -8,6 +8,7 @@
   --background-color: #181719;
   --badge: #ff6d5b;
   --wip-color: #2d9cdb;
+  --white001: #ffffff;
 }
 
 body {
@@ -16,31 +17,78 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: var(--background-color);
   padding: 0 1rem;
+  color: var(--white001);
 }
 
-ul li {
+header {
+  padding-top: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+h1 a {
+  color: var(--badge);
+}
+
+p {
+  width: 88%;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+p a {
+  color: var(--badge);
+  border-radius: none;
+}
+
+.nav__group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nav {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.nav h3 {
+  margin-bottom: 1rem;
+}
+
+.nav li {
   list-style: none;
 }
 
-ul li:not(:last-child) {
+.nav li:not(:last-child) {
   padding-bottom: 1rem;
 }
 
 li a {
   text-decoration: none;
-  color: #fff;
-  font-size: 1.25rem;
+  color: var(--white001);
+  font-size: 1rem;
   padding: 0.5rem;
+}
+
+.create__space {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .new::after,
 .wip::after {
   font-style: italic;
-  font-size: 1.25rem;
 }
 .new::after {
   content: "new";
@@ -52,10 +100,28 @@ li a {
   color: var(--wip-color);
 }
 
+.soon a {
+  color: #828282;
+}
+
+.soon::after {
+  content: "coming soon";
+  color: var(--wip-color);
+}
+
 @media (hover: hover) {
   a:hover {
     background: var(--badge);
     border-radius: 10px;
+  }
+
+  h1 a:hover,
+  p a:hover {
+    background: none;
+  }
+
+  .soon a:hover {
+    background: none;
   }
 }
 
@@ -64,12 +130,36 @@ li a {
     padding: 0;
   }
 
-  li a {
+  h1 {
     font-size: 2rem;
   }
+
+  p {
+    font-size: 1.075rem;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+  }
+
+  .nav__group {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .nav h3 {
+    font-size: 1.75rem;
+  }
+
+  li a {
+    font-size: 1.5rem;
+  }
+
   .new::after,
-  .wip::after {
-    font-size: 2rem;
+  .wip::after,
+  .soon::after {
+    font-size: 1rem;
     margin-left: 0.5rem;
   }
 }
