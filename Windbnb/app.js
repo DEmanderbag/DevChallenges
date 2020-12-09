@@ -189,30 +189,30 @@ let stays = [
 const availableStays =  document.querySelector(".available__stays");
 let numberOfPlaces = stays.length;
 availableStays.innerText = `${numberOfPlaces} stays`;
-
+const cardWrapper = document.querySelector(".card__wrapper");
 
 for(let place of stays) {
   let card = `
-  <div class="card">
-      <div class="card__image">
-      <img src="${place.photo}" alt="">
-      </div>
-      <div class="card__about">
-        <div class="about__title">
-          <h2>${place.title}</h2>
+    <div class="card">
+        <div class="card__image">
+        <img src="${place.photo}" alt="">
         </div>
-        <div class="about__place">
-          <p class="super__host">${place.superHost === true ? "Super Host" : ""}</p>
-          <p>${place.type} ${place.beds != null ? place.beds + " beds" : ""}</p>
-          <div class="rating">
-            <img src="assets/icons/star.svg" alt="star icon">
-            <p>${place.rating}</p>
+        <div class="card__about">
+          <div class="about__title">
+            <h2>${place.title}</h2>
+          </div>
+          <div class="about__place">
+            <p class="super__host">${place.superHost === true ? "Super Host" : ""}</p>
+            <p>${place.type} ${place.beds != null ? place.beds + " beds" : ""}</p>
+            <div class="rating">
+              <img src="assets/icons/star.svg" alt="star icon">
+              <p>${place.rating}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     `
-  section.insertAdjacentHTML("beforeend", card);
+    cardWrapper.insertAdjacentHTML("beforeend", card);
 }
 
 let superHost;
