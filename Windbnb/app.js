@@ -3,12 +3,13 @@ const nav = document.querySelector("nav");
 const wrapper = document.querySelector(".wrapper");
 const wrapperText = wrapper.querySelector(".wrapper__text");
 const wrapperList = wrapper.querySelector(".wrapper__list");
+const wrapperList2 = wrapper.querySelector(".wrapper__list2");
 const wrapperClose = wrapper.querySelector(".wrapper__text .close--list");
 const searchText = nav.querySelector(".search p");
 
 const section = document.querySelector(".places");
 
-nav.addEventListener("click", toggleNav);
+// nav.addEventListener("click", toggleNav);
 
 wrapperClose.addEventListener("click", toggleNav);
 
@@ -18,16 +19,17 @@ function toggleNav(){
     searchText.style.display = "block";
     wrapperText.style.display = "flex";
     wrapperList.style.display = "block";
+    // wrapperList2.style.display = "block";
     section.classList.toggle("places--open");
   } else {
     nav.classList.toggle("nav--open");
     searchText.style.display = "none";
     wrapperText.style.display = "none";
     wrapperList.style.display = "none";
+    // wrapperList2.style.display = "none";
     section.classList.toggle("places--open");
   }
 }
-
 
 let stays = [
   {
@@ -186,11 +188,11 @@ let stays = [
   }
 ]
 
-const availableStays =  document.querySelector(".available__stays");
+let availableStays =  document.querySelector(".available__stays");
 let numberOfPlaces = stays.length;
 availableStays.innerText = `${numberOfPlaces} stays`;
-const cardWrapper = document.querySelector(".card__wrapper");
 
+const cardWrapper = document.querySelector(".card__wrapper");
 for(let place of stays) {
   let card = `
     <div class="card">
@@ -223,4 +225,86 @@ hostElement.forEach(e => {
     e.style.display = "none";
   }
 });
+
+// Seatch by location
+for(let location of stays){
+  populateLocation = `<li>${location.city}, ${ location.country}</li>`
+  wrapperList.insertAdjacentHTML("beforeend", populateLocation);
+}
+
+let wrapperListItem = document.querySelectorAll(".wrapper__list li");
+let locationItem = []
+
+  wrapperListItem.forEach(e => {
+    locationItem.push(e.innerText)
+  });
+  const unique = new Set(locationItem);
+  const cityArray = [...unique];
+
+  // Remove duplicate items from html
+  wrapperListItem.forEach(e => {
+    e.remove();
+  });
+
+  cityArray.forEach(e => {
+    populateLocation = e;
+    populateLocation = `<li>${e}</li>`
+    wrapperList.insertAdjacentHTML("beforeend", populateLocation);
+  });
+
+
+
+// Search functionality
+let locationSearch = nav.querySelector(".location-search");
+locationSearch.addEventListener("click", toggleNav);
+
+const houseSpace = (stays) => {
+  const htmlString = stays
+    .map((stays) =>{
+    return `
+      <div class="card">
+          <div class="card__image">
+          <img src="${stays.photo}" alt="">
+          </div>
+          <div class="card__about">
+            <div class="about__title">
+              <h2>${stays.title}</h2>
+            </div>
+            <div class="about__place">
+              <p class="super__host">${stays.superHost === true ? "Super Host" : ""}</p>
+              <p>${stays.type} ${stays.beds != null ? stays.beds + " beds" : ""}</p>
+              <div class="rating">
+                <img src="assets/icons/star.svg" alt="star icon">
+                <p>${stays.rating}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+  })
+  .join("");
+  cardWrapper.innerHTML = htmlString;
+};
+
+
+locationSearch.addEventListener("keyup", (e) =>{
+  const searchString = e.target.value.toLowerCase();
+  const filteredPlaces = stays.filter(character => {
+    return character.city.toLowerCase().includes(searchString);
+  })
+  houseSpace(filteredPlaces);
+
+  // Update number of stays
+  numberOfPlaces = filteredPlaces.length;
+  availableStays.innerText = `${numberOfPlaces} stays`;
+
+  // Remove element element if not super host
+    hostElementSearch = document.querySelectorAll(".super__host");
+    hostElementSearch.forEach(e => {
+    if(e.innerText !== "SUPER HOST"){
+      e.style.display = "none";
+    }
+  });
+});
+
 
