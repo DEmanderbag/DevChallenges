@@ -3,15 +3,14 @@ const nav = document.querySelector("nav");
 const wrapper = document.querySelector(".wrapper");
 const wrapperText = wrapper.querySelector(".wrapper__text");
 const wrapperList = wrapper.querySelector(".wrapper__list");
-const wrapperList2 = wrapper.querySelector(".wrapper__list2");
 const wrapperClose = wrapper.querySelector(".wrapper__text .close--list");
 const searchText = nav.querySelector(".search p");
+const searchBtn = nav.querySelector(".search");
+const searchImg = nav.querySelector(".search img")
 
 const section = document.querySelector(".places");
-
-// nav.addEventListener("click", toggleNav);
-
 wrapperClose.addEventListener("click", toggleNav);
+searchBtn.addEventListener("click", toggleNav);
 
 function toggleNav(){
   if(wrapper.classList.toggle("wrapper--open")){
@@ -19,14 +18,14 @@ function toggleNav(){
     searchText.style.display = "block";
     wrapperText.style.display = "flex";
     wrapperList.style.display = "block";
-    // wrapperList2.style.display = "block";
+    searchImg.style.display = "none";
     section.classList.toggle("places--open");
   } else {
     nav.classList.toggle("nav--open");
     searchText.style.display = "none";
     wrapperText.style.display = "none";
     wrapperList.style.display = "none";
-    // wrapperList2.style.display = "none";
+    searchImg.style.display = "block";
     section.classList.toggle("places--open");
   }
 }
@@ -36,7 +35,7 @@ let stays = [
     "city": "Helsinki",
     "country": "Finland",
     "superHost": false,
-    "title": "Stylist apartment in center of the city",
+    "title": "Nice apartment in center of Helsinki",
     "rating": 4.4,
     "maxGuests": 3,
     "type": "Entire apartment",
@@ -47,7 +46,7 @@ let stays = [
     "city": "Turku",
     "country": "Finland",
     "superHost": false,
-    "title": "Nice apartment in center of Helsinki",
+    "title": "Stylist apartment in center of the city",
     "rating": 4.2,
     "maxGuests": 5,
     "type": "Entire apartment",
@@ -248,11 +247,9 @@ let locationItem = []
 
   cityArray.forEach(e => {
     populateLocation = e;
-    populateLocation = `<li>${e}</li>`
+    populateLocation = `<li>${e}</li>`;
     wrapperList.insertAdjacentHTML("beforeend", populateLocation);
   });
-
-
 
 // Search functionality
 let locationSearch = nav.querySelector(".location-search");
@@ -286,7 +283,6 @@ const houseSpace = (stays) => {
   cardWrapper.innerHTML = htmlString;
 };
 
-
 locationSearch.addEventListener("keyup", (e) =>{
   const searchString = e.target.value.toLowerCase();
   const filteredPlaces = stays.filter(character => {
@@ -298,7 +294,7 @@ locationSearch.addEventListener("keyup", (e) =>{
   numberOfPlaces = filteredPlaces.length;
   availableStays.innerText = `${numberOfPlaces} stays`;
 
-  // Remove element element if not super host
+  // Remove element if not super host
     hostElementSearch = document.querySelectorAll(".super__host");
     hostElementSearch.forEach(e => {
     if(e.innerText !== "SUPER HOST"){
@@ -306,5 +302,3 @@ locationSearch.addEventListener("keyup", (e) =>{
     }
   });
 });
-
-
