@@ -1,7 +1,6 @@
 ## Windbnb
 
-A live version of a project can be found here
-[here](https://objective-davinci-e4f803.netlify.app/windbnb/ "Windbnb Page live demo")
+A live version of a project can be found [here](https://objective-davinci-e4f803.netlify.app/windbnb/ "Windbnb Page live demo")
 
 **Challenge:** Create a small version of Airbnb - Windbnb with given data. Use Front-end libraries like React or Vue. Don’t look at the existing solution. Fulfill user stories below:
 
@@ -12,6 +11,6 @@ A live version of a project can be found here
 - **User story:** I can see the number of filtered items
 - **User story:** I can see pages following given designs
 
-**Practiced:** In this project I was practicing mobile first approach for this web design while using Flexbox
+**Practised:** In this project, I was practising mobile-first approach while using Flexbox and CSS Grid for displaying content. Content is loaded from JavaScript with an ability to filter the content by city.
 
-![Markdown logo](image/recipe-preview.png)
+![Windbnb project preview](assets/images/project-preview.png)
