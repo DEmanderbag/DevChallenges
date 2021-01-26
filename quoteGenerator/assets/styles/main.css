@@ -19,7 +19,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  overflow: hidden;
+}
+
+.open {
+  overflow-y: scroll;
 }
 
 img {
@@ -40,10 +44,15 @@ header {
   cursor: pointer;
   padding: 1rem;
   color: var(--dark002);
+  font-size: 1.25rem;
 }
 
 .random__quote span {
   margin-left: 0.5rem;
+}
+
+.back {
+  margin-right: 0.5rem;
 }
 
 .quote {
@@ -85,6 +94,49 @@ header {
   color: var(--gray002);
 }
 
+.all__quotes {
+  background-color: var(--light001);
+  position: absolute;
+  min-width: 100%;
+  min-height: 100vh;
+  transform: translateX(100%);
+}
+
+.is-open {
+  transform: translateX(0);
+  transition: 0.3s ease-in all;
+}
+
+.quote__author--all {
+  color: var(--dark002);
+  font-size: 1.25rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0;
+}
+
+.back__group {
+  flex: 1;
+  max-width: 30rem;
+  margin: 2.5rem auto 0 auto;
+}
+
+.test {
+  max-width: 30rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.back__option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+  background-color: transparent;
+  border: none;
+}
+
 @media screen and (min-width: 650px) {
   :root {
     font-size: 20px;
@@ -98,10 +150,10 @@ header {
     padding: 2rem;
   }
 
-  .quote__text {
+  .quote__text,
+  .container > div {
     border-left: 3px solid var(--primary);
     padding-left: 2rem;
-    margin-bottom: 3rem;
   }
 }
 
