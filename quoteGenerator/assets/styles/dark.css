@@ -1,10 +1,11 @@
 :root {
-  --accent-color: #be920e;
+  --accent-color: #1da1f2;
   --color: #333333;
   --main-headline-color: #f2f2f2;
   --text-color: #d9d9d9;
   --small-text: #999999;
-  --background-color: #b5b5b5;
+  --special-text-color: #d9d9d9;
+  --background-color: #555555;
   --icon-filter: invert(100%);
 }
 

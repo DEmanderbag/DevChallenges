@@ -52,7 +52,7 @@ img {
   background-color: transparent;
   cursor: pointer;
   padding: var(--small);
-  color: var(--background-color);
+  color: var(--text-color);
   font-size: 1.25rem;
 }
 
@@ -124,7 +124,7 @@ img {
 }
 
 .quote__author--all {
-  color: var(--background-color);
+  color: var(--text-color);
   font-size: 1.25rem;
   margin-left: var(--x-small);
   margin-bottom: 0;
@@ -199,12 +199,13 @@ img {
     cursor: pointer;
   }
 
-  .quote__about:hover::after {
+  .quote__about:hover::after,
+  .quote__about:focus::after {
     opacity: 1;
   }
 
   .quote__about:hover .quote__author,
   .quote__about:focus .quote__author {
-    color: var(--color);
+    color: var(--special-text-color);
   }
 }
