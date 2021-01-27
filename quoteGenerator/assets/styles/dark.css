@@ -1,0 +1,13 @@
+:root {
+  --accent-color: #be920e;
+  --color: #333333;
+  --main-headline-color: #f2f2f2;
+  --text-color: #d9d9d9;
+  --small-text: #999999;
+  --background-color: #b5b5b5;
+  --icon-filter: invert(100%);
+}
+
+img[src*=".svg"] {
+  filter: var(--icon-filter);
+}

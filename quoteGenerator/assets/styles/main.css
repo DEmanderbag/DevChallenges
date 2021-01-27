@@ -6,13 +6,12 @@
 
 :root {
   /* Colors */
-  --primary: #f7df94;
-  --light001: #f2f2f2;
-  --gray001: #a9a9a9;
-  --gray002: #828282;
-  --dark001: #4f4f4f;
-  --dark002: #333333;
-  --dark003: #000000;
+  --accent-color: #f7df94;
+  --color: #f2f2f2;
+  --main-headline-color: #000000;
+  --text-color: #4f4f4f;
+  --small-text: #828282;
+  --background-color: #333333;
 
   /* Sizing */
   --x-small: 0.5rem;
@@ -29,6 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background-color: var(--color);
 }
 
 .open {
@@ -52,7 +52,7 @@ img {
   background-color: transparent;
   cursor: pointer;
   padding: var(--small);
-  color: var(--dark002);
+  color: var(--background-color);
   font-size: 1.25rem;
 }
 
@@ -73,13 +73,14 @@ img {
   max-width: 30rem;
   padding: 0 var(--small);
   transform: translateY(var(--large));
+  color: var(--main-headline-color);
 }
 
 .quote__text {
   font-size: var(--medium);
   margin-bottom: var(--large);
   padding-left: var(--small);
-  border-left: 3px solid var(--primary);
+  border-left: 3px solid var(--accent-color);
 }
 
 .quote__about {
@@ -99,21 +100,22 @@ img {
 
 .quote__author {
   font-weight: 700;
-  color: var(--dark001);
+  color: var(--text-color);
   margin-bottom: var(--x-small);
 }
 
 .quote__genre {
   font-size: 0.875rem;
-  color: var(--gray002);
+  color: var(--small-text);
 }
 
 .all__quotes {
-  background-color: var(--light001);
+  background-color: var(--color);
   position: absolute;
   min-width: 100%;
   min-height: 100vh;
   transform: translateX(100%);
+  z-index: 10;
 }
 
 .is-open {
@@ -122,7 +124,7 @@ img {
 }
 
 .quote__author--all {
-  color: var(--dark002);
+  color: var(--background-color);
   font-size: 1.25rem;
   margin-left: var(--x-small);
   margin-bottom: 0;
@@ -146,7 +148,8 @@ img {
   font-size: 1.125rem;
   line-height: 1.5;
   padding-left: var(--small);
-  border-left: 3px solid var(--primary);
+  border-left: 3px solid var(--accent-color);
+  color: var(--main-headline-color);
 }
 
 .back__option {
@@ -180,28 +183,28 @@ img {
   }
 
   .quote__text {
-    border-left: 5px solid var(--primary);
+    border-left: 5px solid var(--accent-color);
     padding-left: var(--large);
   }
 
   .quotes__data p {
-    border-left: 5px solid var(--primary);
+    border-left: 5px solid var(--accent-color);
   }
 }
 
 @media (hover: hover) {
   .quote__about:hover,
   .quote__about:focus {
-    background-color: var(--dark002);
+    background-color: var(--background-color);
     cursor: pointer;
   }
 
-  .quote__about::after {
+  .quote__about:hover::after {
     opacity: 1;
   }
 
   .quote__about:hover .quote__author,
   .quote__about:focus .quote__author {
-    color: var(--light001);
+    color: var(--color);
   }
 }
