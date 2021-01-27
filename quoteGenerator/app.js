@@ -20,7 +20,7 @@ async function getRandomQuote() {
 
   let quote = `
   <p class="quote__text">${quoteText}</p>
-    <div class="quote__about">
+    <div class="quote__about" tabindex=0>
       <p class="quote__author">${quoteAuthor}</p>
       <p class="quote__genre">${quoteGenre}</p>
     </div>`;
@@ -33,11 +33,22 @@ async function getRandomQuote() {
   });
 
   const quoteAbout = document.querySelector(".quote__about");
+  // Event listener on click
   quoteAbout.addEventListener("click", () => {
     allQuotesSection.classList.add("is-open");
     clearAllQuotes();
     body.classList.add("open");
     getQuoteByAuthor();
+  });
+
+  // Event listener on enter key
+  quoteAbout.addEventListener("keyup", (e) => {
+    if (e.keyCode === 13) {
+      allQuotesSection.classList.add("is-open");
+      clearAllQuotes();
+      body.classList.add("open");
+      getQuoteByAuthor();
+    }
   });
 }
 
@@ -52,7 +63,6 @@ async function getQuoteByAuthor() {
   let allQuotes = authorQuote.data;
 
   let authorName = allQuotes[0].quoteAuthor;
-  console.log(authorName);
 
   let backButton = `
   <div class="back__group">
@@ -62,16 +72,16 @@ async function getQuoteByAuthor() {
     </button>
    </div>`;
 
+  //  Populates all quotes section
   allQuotesSection.innerHTML += backButton;
 
   allQuotes.forEach((e) => {
     let quotes = e.quoteText;
     let quotesData = `
-      <div class="test">
+      <div class="quotes__data">
         <p>${quotes}</p>
       </div>`;
 
-    console.log(quotes);
     allQuotesSection.innerHTML += quotesData;
   });
 
@@ -81,7 +91,6 @@ async function getQuoteByAuthor() {
     allQuotesSection.classList.remove("is-open");
     body.classList.remove("open");
   });
-  console.log("loaded");
 }
 
 getRandomQuote();
