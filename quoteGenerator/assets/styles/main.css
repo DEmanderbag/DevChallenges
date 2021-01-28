@@ -109,9 +109,44 @@ img {
   color: var(--small-text);
 }
 
+/* Loading class for quote section */
+.quote.is-loading {
+  width: 100%;
+}
+
+.quote.is-loading .quote__text,
+.quote.is-loading .quote__author,
+.quote.is-loading .quote__genre {
+  background-color: var(--loading);
+  background: linear-gradient(
+    110deg,
+    var(--loading) 8%,
+    var(--loading-accent) 18%,
+    var(--loading) 33%
+  );
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+  font-size: 1px;
+  color: var(--loading);
+}
+
+.quote.is-loading .quote__text {
+  border-left: none;
+  height: 10rem;
+}
+
+.quote.is-loading .quote__author {
+  height: 2rem;
+}
+
+.quote.is-loading .quote__genre {
+  height: 1.5rem;
+}
+
 .all__quotes {
   background-color: var(--color);
   position: absolute;
+  width: 100%;
   min-width: 100%;
   min-height: 100vh;
   transform: translateX(100%);
@@ -162,6 +197,37 @@ img {
   border: none;
 }
 
+.all__quotes.loading .back__group,
+.all__quotes.loading .quote__author--all,
+.all__quotes.loading .quotes__data p {
+  background-color: var(--loading);
+  background: linear-gradient(
+    110deg,
+    var(--loading) 8%,
+    var(--loading-accent) 18%,
+    var(--loading) 33%
+  );
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+  font-size: 1px;
+  color: var(--loading);
+}
+.all__quotes.loading .back__group {
+  padding: 0 var(--x-small);
+}
+
+.all__quotes.loading .back__group p {
+  height: 1.5rem;
+  margin-bottom: var(--large);
+  font-size: 1px;
+}
+
+.all__quotes.loading .quotes__data p {
+  border-left: none;
+  height: 7rem;
+  font-size: 1px;
+}
+
 @media screen and (min-width: 650px) {
   :root {
     font-size: 20px;
@@ -174,6 +240,7 @@ img {
   .quote {
     transform: translateY(0);
   }
+
   .random__quote {
     font-size: var(--small);
   }
@@ -185,6 +252,11 @@ img {
   .quote__text {
     border-left: 5px solid var(--accent-color);
     padding-left: var(--large);
+  }
+
+  .quote.is-loading .quote__text {
+    border-left: none;
+    height: 15rem;
   }
 
   .quotes__data p {
@@ -207,5 +279,11 @@ img {
   .quote__about:hover .quote__author,
   .quote__about:focus .quote__author {
     color: var(--special-text-color);
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
   }
 }

@@ -6,6 +6,8 @@
   --small-text: #999999;
   --special-text-color: #d9d9d9;
   --background-color: #555555;
+  --loading-accent: #555555;
+  --loading: #444444;
   --icon-filter: invert(100%);
 }
 

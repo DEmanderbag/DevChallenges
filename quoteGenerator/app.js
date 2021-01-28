@@ -9,6 +9,9 @@ const API = "https://quote-garden.herokuapp.com/api/v3/quotes";
 let params;
 
 async function getRandomQuote() {
+  // Set animation while waiting for data
+  quoteSection.classList.add("is-loading");
+
   // Returns a random quote
   const request = await fetch(`${API}/random`);
   const data = await request.json();
@@ -26,6 +29,9 @@ async function getRandomQuote() {
     </div>`;
   quoteSection.innerHTML = quote;
 
+  if (request.ok) {
+    quoteSection.classList.remove("is-loading");
+  }
   //  Get the data from Parametar
   params = new URLSearchParams({
     author: quoteAuthor,
@@ -58,6 +64,8 @@ function clearAllQuotes() {
 }
 
 async function getQuoteByAuthor() {
+  allQuotesSection.classList.add("loading");
+
   const url = await fetch(`${API}?${params.toString()}`);
   const authorQuote = await url.json();
   let allQuotes = authorQuote.data;
@@ -91,6 +99,10 @@ async function getQuoteByAuthor() {
     allQuotesSection.classList.remove("is-open");
     body.classList.remove("open");
   });
+
+  if (url.ok) {
+    allQuotesSection.classList.remove("loading");
+  }
 }
 
 getRandomQuote();
