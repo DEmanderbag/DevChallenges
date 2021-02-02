@@ -34,7 +34,8 @@ img {
 }
 
 .hero {
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 2rem;
   background-color: var(--card-bg);
   display: flex;
   flex-direction: column;
