@@ -270,3 +270,39 @@ img {
     grid-column: 1 / -1;
   }
 }
+
+@media screen and (min-width: 1000px) {
+  body {
+    display: flex;
+    background-color: var(--card-bg);
+  }
+
+  .hero {
+    width: 30rem;
+    min-height: 100vh;
+  }
+
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2.4rem 8rem;
+    background-color: var(--section-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .days,
+  .highlight {
+    padding: 0;
+  }
+
+  .days {
+    padding-bottom: 3.4rem;
+  }
+
+  .card,
+  .highlight__card {
+    min-width: 100%;
+  }
+}
