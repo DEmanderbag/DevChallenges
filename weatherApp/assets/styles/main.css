@@ -193,11 +193,14 @@ img {
   align-items: center;
 }
 
-/* !Add styles for p tag */
+.highlight__data {
+  margin-bottom: var(--x-small);
+}
 
 .highlight__main {
   font-weight: 700;
   font-size: 4rem;
+  margin-bottom: var(--small);
 }
 
 .highlight__main span {
@@ -234,4 +237,36 @@ img {
   margin-top: 4px;
   margin-bottom: 0;
   justify-content: flex-end;
+}
+
+@media screen and (min-width: 500px) {
+  .weather {
+    max-width: 32rem;
+    margin: 0 auto;
+    background-size: contain;
+  }
+
+  .days {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .highlight__card {
+    width: 100%;
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .days {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .highlight {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .highlight h2 {
+    grid-column: 1 / -1;
+  }
 }
