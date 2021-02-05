@@ -286,7 +286,7 @@ img {
   .container {
     width: 100%;
     min-height: 100vh;
-    padding: 2.4rem 8rem;
+    padding: 2.4rem;
     background-color: var(--section-bg);
     display: flex;
     flex-direction: column;
@@ -305,5 +305,11 @@ img {
   .card,
   .highlight__card {
     min-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    padding: 2.4rem 8rem;
   }
 }
