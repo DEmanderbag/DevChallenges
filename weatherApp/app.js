@@ -47,7 +47,7 @@ async function getData(lat, long) {
 
 function currentTemeprature(date, currentTemp, weatherState, location, weatherIcon) {
   weather.innerHTML = `<div class="weather__state-icon">
-        <img src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png" alt="${weatherState}">
+        <img src="https://openweathermap.org/img/wn/${weatherIcon}@2x.png" alt="${weatherState}">
       </div>
       <p class="weather__temperature">${currentTemp}<span>&#176;c</span></p>
       <p class="weather__state">${weatherState}</p>
@@ -137,7 +137,7 @@ function fiveDay(date, maxTemp, minTemp, icon, iconState) {
       <div class="card">
         <p class="card__date">${date}</p>
         <div class="card__weather">
-          <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="${iconState}">
+          <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${iconState}">
         </div>
         <div class="card__temperature">
           <p class="temp__max">${maxTemp}<span>&#176;c</span></p>
