@@ -12,8 +12,8 @@ window.addEventListener("load", () => {
     navigator.geolocation.getCurrentPosition((position) => {
       long = position.coords.longitude.toFixed();
       lat = position.coords.latitude.toFixed();
-      // getData(lat, long);
-      // fiveDayForecast(lat, long);
+      getData(lat, long);
+      fiveDayForecast(lat, long);
     });
   } else {
     console.log("Try search by a city instead");
@@ -29,7 +29,13 @@ async function getData(lat, long) {
   let currentTemp = data.main.temp.toFixed();
   let weatherState = data.weather[0].main;
   let weatherIcon = data.weather[0].icon;
-  currentTemeprature(currentTemp, weatherState, location, weatherIcon);
+
+  const date = new Date();
+  const month = new Intl.DateTimeFormat("en", { month: "short" }).format(date);
+  const day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
+  let dayName = date.toString().split(" ")[0];
+  const shortDate = `${dayName}, ${day} ${month}`;
+  currentTemeprature(shortDate, currentTemp, weatherState, location, weatherIcon);
 
   // Other data
   let windSpeed = data.wind.speed.toFixed();
@@ -39,7 +45,7 @@ async function getData(lat, long) {
   otherWeatherData(windSpeed, windDeg, humidity, airPressure);
 }
 
-function currentTemeprature(currentTemp, weatherState, location, weatherIcon) {
+function currentTemeprature(date, currentTemp, weatherState, location, weatherIcon) {
   weather.innerHTML = `<div class="weather__state-icon">
         <img src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png" alt="${weatherState}">
       </div>
@@ -48,7 +54,7 @@ function currentTemeprature(currentTemp, weatherState, location, weatherIcon) {
       <div class="weather__about">
         <p>Today</p>
         <div class="decoration"></div>
-        <p>Fri, 5 Jun</p>
+        <p>${date}</p>
       </div>
       <div class="location">
         <img src="assets/icons/location.svg" alt="Location Pin">
@@ -96,61 +102,42 @@ async function fiveDayForecast(lat, long) {
     `${API}/forecast?lat=${lat}&lon=${long}&units=metric&appid=${APIKey}`
   );
   const data = await request.json();
-  console.log(data);
-  // This is still not working, loop is needed
-  let maxTemp = data.list[0].main.temp_max.toFixed();
-  let minTemp = data.list[0].main.temp_min.toFixed();
-  let icon = data.list[0].weather[0].icon;
-  let iconState = data.list[0].weather[0].main;
-  fiveDay(maxTemp, minTemp, icon, iconState);
+
+  // Get every 8th element from the API
+  const fiveDayData = [];
+  for (let i = 0; i < data.list.length; i += 8) {
+    const element = data.list[i];
+    fiveDayData.push(element);
+  }
+
+  for (let i = 0; i < fiveDayData.length; i++) {
+    let maxTemp = fiveDayData[i].main.temp_max.toFixed();
+    let minTemp = fiveDayData[i].main.temp_min.toFixed();
+    let icon = fiveDayData[i].weather[0].icon;
+    let iconState = fiveDayData[i].weather[0].main;
+    if (i === 0) {
+      fiveDay("Today", maxTemp, minTemp, icon, iconState);
+    } else if (i === 1) {
+      fiveDay("Tommorow", maxTemp, minTemp, icon, iconState);
+    } else {
+      const date = new Date();
+      let numberOfDaysToAdd = i;
+      date.setDate(date.getDate() + numberOfDaysToAdd);
+      const month = new Intl.DateTimeFormat("en", { month: "short" }).format(date);
+      const day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
+      let dayName = date.toString().split(" ")[0];
+      const shortDate = `${dayName}, ${day} ${month}`;
+      fiveDay(shortDate, maxTemp, minTemp, icon, iconState);
+    }
+  }
 }
 
-function fiveDay(maxTemp, minTemp, icon, iconState) {
-  days.innerHTML = `
+function fiveDay(date, maxTemp, minTemp, icon, iconState) {
+  days.innerHTML += `
       <div class="card">
-        <p class="card__date">Today</p>
+        <p class="card__date">${date}</p>
         <div class="card__weather">
           <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="${iconState}">
-        </div>
-        <div class="card__temperature">
-          <p class="temp__max">${maxTemp}<span>&#176;c</span></p>
-          <p class="temp__min">${minTemp}<span>&#176;c</span></p>
-        </div>
-      </div>
-      <div class="card">
-        <p class="card__date">Tomorrow</p>
-        <div class="card__weather">
-          <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="">
-        </div>
-        <div class="card__temperature">
-          <p class="temp__max">${maxTemp}<span>&#176;c</span></p>
-          <p class="temp__min">${minTemp}<span>&#176;c</span></p>
-        </div>
-      </div>
-      <div class="card">
-        <p class="card__date">Today</p>
-        <div class="card__weather">
-          <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="">
-        </div>
-        <div class="card__temperature">
-          <p class="temp__max">${maxTemp}<span>&#176;c</span></p>
-          <p class="temp__min">${minTemp}<span>&#176;c</span></p>
-        </div>
-      </div>
-      <div class="card">
-        <p class="card__date">Today</p>
-        <div class="card__weather">
-          <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="">
-        </div>
-        <div class="card__temperature">
-          <p class="temp__max">${maxTemp}<span>&#176;c</span></p>
-          <p class="temp__min">${minTemp}<span>&#176;c</span></p>
-        </div>
-      </div>
-      <div class="card">
-        <p class="card__date">Today</p>
-        <div class="card__weather">
-          <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="">
         </div>
         <div class="card__temperature">
           <p class="temp__max">${maxTemp}<span>&#176;c</span></p>
