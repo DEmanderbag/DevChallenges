@@ -133,7 +133,6 @@ img {
 
 .days {
   background-color: var(--section-bg);
-  height: calc(11rem + 3.4rem);
   padding: 3.4rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);

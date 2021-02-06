@@ -64,6 +64,7 @@ function currentTemeprature(date, currentTemp, weatherState, location, weatherIc
 
 function otherWeatherData(windSpeed, windDeg, humidity, airPressure) {
   highlight.innerHTML = `
+  <h2>Today’s Hightlights</h2>
   <div class="highlight__card">
         <p class="highlight__data">Wind status</p>
         <p class="highlight__main">${windSpeed} <span>mph</span></p>
