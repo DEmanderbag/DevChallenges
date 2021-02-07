@@ -1,6 +1,7 @@
 const APIKey = "fb9db9ad6093d8f55168df2067c8b839";
 let API = "https://api.openweathermap.org/data/2.5/";
 
+const body = document.querySelector("body");
 const main = document.querySelector(".main");
 const weather = document.querySelector(".weather");
 const highlight = document.querySelector(".highlight");
@@ -17,7 +18,9 @@ btnSubmit.addEventListener("click", (e) => {
   const inputValue = input.value;
   getCityData(inputValue, unit);
   fiveDayForecastCity(inputValue, unit);
+
   main.style.display = "none";
+  body.classList.remove("is-open");
 });
 
 let unit;
@@ -38,7 +41,10 @@ getLocation.addEventListener("click", () => {
       long = position.coords.longitude.toFixed();
       lat = position.coords.latitude.toFixed();
       getData(lat, long);
-      fiveDayForecast(lat, long);
+      if (!days.innerHTML == "") {
+        days.innerHTML = "";
+        fiveDayForecast(lat, long);
+      }
     });
   } else {
     console.log("Failed to load data");
