@@ -1,10 +1,35 @@
+const APIKey = "fb9db9ad6093d8f55168df2067c8b839";
+let API = "https://api.openweathermap.org/data/2.5/";
+
+const main = document.querySelector(".main");
 const weather = document.querySelector(".weather");
 const highlight = document.querySelector(".highlight");
 const days = document.querySelector(".days");
 
-const APIKey = "fb9db9ad6093d8f55168df2067c8b839";
-let API = "https://api.openweathermap.org/data/2.5/";
-window.addEventListener("load", () => {
+const getLocation = document.querySelector(".location-pin");
+// Get data by looking for a city
+const buttonGroup = document.querySelectorAll(".main__group button");
+const input = document.querySelector("input");
+const btnSubmit = document.querySelector("#submit");
+
+btnSubmit.addEventListener("click", (e) => {
+  e.preventDefault();
+  const inputValue = input.value;
+  getCityData(inputValue, unit);
+  fiveDayForecastCity(inputValue, unit);
+  main.style.display = "none";
+});
+
+let unit;
+buttonGroup.forEach((e) => {
+  e.addEventListener("click", () => {
+    e.classList.toggle("selected");
+    unit = e.dataset["unit"];
+  });
+});
+
+// Get data by your current location
+getLocation.addEventListener("click", () => {
   let long;
   let lat;
 
@@ -16,15 +41,18 @@ window.addEventListener("load", () => {
       fiveDayForecast(lat, long);
     });
   } else {
-    console.log("Try search by a city instead");
+    console.log("Failed to load data");
   }
 });
 
-async function getData(lat, long) {
-  const request = await fetch(`${API}/weather?lat=${lat}&lon=${long}&units=metric&appid=${APIKey}`);
+async function getCityData(city, units) {
+  const request = await fetch(`${API}/weather?q=${city}&units=${units}&appid=${APIKey}`);
   const response = await request.json();
   let data = response;
+  populateData(data);
+}
 
+function populateData(data) {
   let location = data.name;
   let currentTemp = data.main.temp.toFixed();
   let weatherState = data.weather[0].main;
@@ -43,6 +71,13 @@ async function getData(lat, long) {
   let humidity = data.main.humidity;
   let airPressure = data.main.pressure;
   otherWeatherData(windSpeed, windDeg, humidity, airPressure);
+}
+
+async function getData(lat, long) {
+  const request = await fetch(`${API}/weather?lat=${lat}&lon=${long}&units=metric&appid=${APIKey}`);
+  const response = await request.json();
+  let data = response;
+  populateData(data);
 }
 
 function currentTemeprature(date, currentTemp, weatherState, location, weatherIcon) {
@@ -98,6 +133,38 @@ function otherWeatherData(windSpeed, windDeg, humidity, airPressure) {
       </div>`;
 }
 
+async function fiveDayForecastCity(city, units) {
+  const request = await fetch(`${API}/forecast?q=${city}&units=${units}&appid=${APIKey}`);
+  const data = await request.json();
+
+  const fiveDayData = [];
+  for (let i = 0; i < data.list.length; i += 8) {
+    const element = data.list[i];
+    fiveDayData.push(element);
+  }
+
+  for (let i = 0; i < fiveDayData.length; i++) {
+    let maxTemp = fiveDayData[i].main.temp_max.toFixed();
+    let minTemp = fiveDayData[i].main.temp_min.toFixed();
+    let icon = fiveDayData[i].weather[0].icon;
+    let iconState = fiveDayData[i].weather[0].main;
+    if (i === 0) {
+      fiveDay("Today", maxTemp, minTemp, icon, iconState);
+    } else if (i === 1) {
+      fiveDay("Tomorrow", maxTemp, minTemp, icon, iconState);
+    } else {
+      const date = new Date();
+      let numberOfDaysToAdd = i;
+      date.setDate(date.getDate() + numberOfDaysToAdd);
+      const month = new Intl.DateTimeFormat("en", { month: "short" }).format(date);
+      const day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
+      let dayName = date.toString().split(" ")[0];
+      const shortDate = `${dayName}, ${day} ${month}`;
+      fiveDay(shortDate, maxTemp, minTemp, icon, iconState);
+    }
+  }
+}
+
 async function fiveDayForecast(lat, long) {
   const request = await fetch(
     `${API}/forecast?lat=${lat}&lon=${long}&units=metric&appid=${APIKey}`
@@ -119,7 +186,7 @@ async function fiveDayForecast(lat, long) {
     if (i === 0) {
       fiveDay("Today", maxTemp, minTemp, icon, iconState);
     } else if (i === 1) {
-      fiveDay("Tommorow", maxTemp, minTemp, icon, iconState);
+      fiveDay("Tomorrow", maxTemp, minTemp, icon, iconState);
     } else {
       const date = new Date();
       let numberOfDaysToAdd = i;

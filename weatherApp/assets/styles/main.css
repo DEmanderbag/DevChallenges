@@ -21,6 +21,7 @@
 
 body {
   font-family: "Raleway", sans-serif;
+  position: relative;
 }
 
 img {
@@ -31,6 +32,67 @@ img {
   border: none;
   background-color: var(--btn-bg);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.main {
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.main__title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.main__group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  border: none;
+  background-color: var(--btn-bg);
+  box-shadow: 0px 4px 4px rgb(0, 0, 0, 25%);
+}
+
+.btn:first-child {
+  margin-right: 0.75rem;
+}
+
+.location__btn {
+  padding: 1rem;
+  border-radius: 50%;
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+input {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--section-bg);
+  color: var(--text-color);
+  border: none;
+  box-shadow: 0px 4px 4px rgb(0, 0, 0, 25%);
+}
+
+input::placeholder {
+  color: var(--text-color);
+}
+
+.selected {
+  background-color: var(--text-color);
+  color: var(--section-bg);
 }
 
 .hero {
