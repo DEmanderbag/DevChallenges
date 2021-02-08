@@ -16,6 +16,31 @@ const searchSection = document.querySelector(".hero__container");
 const inputSearch = document.querySelector(".hero__container input");
 const searchPlaces = document.querySelector(".hero__nav .btn--search");
 const searchBtn = document.querySelector(".hero__container .btn--search");
+let unit = "metric";
+
+const myLocation = document.querySelector(".my__location");
+
+myLocation.addEventListener("click", (e) => {
+  e.preventDefault();
+  main.style.display = "none";
+  body.classList.remove("is-open");
+  let long;
+  let lat;
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      long = position.coords.longitude.toFixed();
+      lat = position.coords.latitude.toFixed();
+      getData(lat, long, unit);
+      if (!days.innerHTML == "") {
+        days.innerHTML = "";
+        fiveDayForecast(lat, long, unit);
+      }
+    });
+  } else {
+    console.log("Failed to load data");
+  }
+});
 
 searchPlaces.addEventListener("click", () => {
   searchSection.classList.add("open");
@@ -40,7 +65,6 @@ btnSubmit.addEventListener("click", (e) => {
   body.classList.remove("is-open");
 });
 
-let unit;
 buttonGroup.forEach((e) => {
   e.addEventListener("click", () => {
     e.classList.toggle("selected");
@@ -57,10 +81,10 @@ getLocation.addEventListener("click", () => {
     navigator.geolocation.getCurrentPosition((position) => {
       long = position.coords.longitude.toFixed();
       lat = position.coords.latitude.toFixed();
-      getData(lat, long);
+      getData(lat, long, unit);
       if (!days.innerHTML == "") {
         days.innerHTML = "";
-        fiveDayForecast(lat, long);
+        fiveDayForecast(lat, long, unit);
       }
     });
   } else {
@@ -86,7 +110,7 @@ function populateData(data) {
   const day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
   let dayName = date.toString().split(" ")[0];
   const shortDate = `${dayName}, ${day} ${month}`;
-  currentTemeprature(shortDate, currentTemp, weatherState, location, weatherIcon);
+  currentTemeprature(shortDate, currentTemp, weatherState, location, weatherIcon, unit);
 
   // Other data
   let windSpeed = data.wind.speed.toFixed();
@@ -96,18 +120,22 @@ function populateData(data) {
   otherWeatherData(windSpeed, windDeg, humidity, airPressure);
 }
 
-async function getData(lat, long) {
-  const request = await fetch(`${API}/weather?lat=${lat}&lon=${long}&units=metric&appid=${APIKey}`);
+async function getData(lat, long, unit) {
+  const request = await fetch(
+    `${API}/weather?lat=${lat}&lon=${long}&units=${unit}&appid=${APIKey}`
+  );
   const response = await request.json();
   let data = response;
   populateData(data);
 }
 
-function currentTemeprature(date, currentTemp, weatherState, location, weatherIcon) {
+function currentTemeprature(date, currentTemp, weatherState, location, weatherIcon, unit) {
   weather.innerHTML = `<div class="weather__state-icon">
         <img src="https://openweathermap.org/img/wn/${weatherIcon}@2x.png" alt="${weatherState}">
       </div>
-      <p class="weather__temperature">${currentTemp}<span>&#176;c</span></p>
+      <p class="weather__temperature">${currentTemp}<span>&#176;${
+    unit === "metric" ? "C" : "F"
+  }</span></p>
       <p class="weather__state">${weatherState}</p>
       <div class="weather__about">
         <p>Today</p>
@@ -172,9 +200,9 @@ async function fiveDayForecastCity(city, units) {
     let icon = fiveDayData[i].weather[0].icon;
     let iconState = fiveDayData[i].weather[0].main;
     if (i === 0) {
-      fiveDay("Today", maxTemp, minTemp, icon, iconState);
+      fiveDay("Today", maxTemp, minTemp, icon, iconState, unit);
     } else if (i === 1) {
-      fiveDay("Tomorrow", maxTemp, minTemp, icon, iconState);
+      fiveDay("Tomorrow", maxTemp, minTemp, icon, iconState, unit);
     } else {
       const date = new Date();
       let numberOfDaysToAdd = i;
@@ -183,14 +211,14 @@ async function fiveDayForecastCity(city, units) {
       const day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
       let dayName = date.toString().split(" ")[0];
       const shortDate = `${dayName}, ${day} ${month}`;
-      fiveDay(shortDate, maxTemp, minTemp, icon, iconState);
+      fiveDay(shortDate, maxTemp, minTemp, icon, iconState, unit);
     }
   }
 }
 
-async function fiveDayForecast(lat, long) {
+async function fiveDayForecast(lat, long, unit) {
   const request = await fetch(
-    `${API}/forecast?lat=${lat}&lon=${long}&units=metric&appid=${APIKey}`
+    `${API}/forecast?lat=${lat}&lon=${long}&units=${unit}&appid=${APIKey}`
   );
   const data = await request.json();
 
@@ -207,9 +235,9 @@ async function fiveDayForecast(lat, long) {
     let icon = fiveDayData[i].weather[0].icon;
     let iconState = fiveDayData[i].weather[0].main;
     if (i === 0) {
-      fiveDay("Today", maxTemp, minTemp, icon, iconState);
+      fiveDay("Today", maxTemp, minTemp, icon, iconState, unit);
     } else if (i === 1) {
-      fiveDay("Tomorrow", maxTemp, minTemp, icon, iconState);
+      fiveDay("Tomorrow", maxTemp, minTemp, icon, iconState, unit);
     } else {
       const date = new Date();
       let numberOfDaysToAdd = i;
@@ -218,12 +246,12 @@ async function fiveDayForecast(lat, long) {
       const day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
       let dayName = date.toString().split(" ")[0];
       const shortDate = `${dayName}, ${day} ${month}`;
-      fiveDay(shortDate, maxTemp, minTemp, icon, iconState);
+      fiveDay(shortDate, maxTemp, minTemp, icon, iconState, unit);
     }
   }
 }
 
-function fiveDay(date, maxTemp, minTemp, icon, iconState) {
+function fiveDay(date, maxTemp, minTemp, icon, iconState, unit) {
   days.innerHTML += `
       <div class="card">
         <p class="card__date">${date}</p>
@@ -231,8 +259,8 @@ function fiveDay(date, maxTemp, minTemp, icon, iconState) {
           <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${iconState}">
         </div>
         <div class="card__temperature">
-          <p class="temp__max">${maxTemp}<span>&#176;c</span></p>
-          <p class="temp__min">${minTemp}<span>&#176;c</span></p>
+          <p class="temp__max">${maxTemp}<span>&#176;${unit === "metric" ? "C" : "F"}</span></p>
+          <p class="temp__min">${minTemp}<span>&#176;${unit === "metric" ? "C" : "F"}</span></p>
         </div>
       </div>
 `;

@@ -106,6 +106,19 @@ input::placeholder {
   color: var(--section-bg);
 }
 
+.my-location {
+  position: absolute;
+  right: var(--small);
+  top: var(--small);
+}
+
+.my__location {
+  margin-top: 1rem;
+}
+
+.my__location a {
+  color: var(--text-color);
+}
 /* Hero section */
 .hero {
   min-height: 70vh;
