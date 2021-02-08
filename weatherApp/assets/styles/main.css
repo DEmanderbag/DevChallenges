@@ -36,6 +36,8 @@ img {
 
 .is-open {
   overflow-y: hidden;
+  position: fixed;
+  width: 100%;
 }
 
 .main {
@@ -44,12 +46,17 @@ img {
   min-height: 100vh;
   background-color: var(--card-bg);
   color: var(--text-color);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  z-index: 10;
+}
+
+.main__image {
+  order: -1;
+  transform: translateY(-5rem);
 }
 
 .main__title {
@@ -69,7 +76,7 @@ img {
   box-shadow: 0px 4px 4px rgb(0, 0, 0, 25%);
 }
 
-.location__btn {
+.btn--location {
   padding: 1rem;
   border-radius: 50%;
   color: var(--text-color);
@@ -107,6 +114,34 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   color: var(--text-color);
+  position: relative;
+}
+
+.hero__container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--card-bg);
+  min-height: 100vh;
+  padding: 3rem 0.5rem;
+  transform: translateX(-100%);
+  transition: 0.3s ease-in transform;
+}
+
+.open {
+  transform: translateX(0);
+  transition: 0.3s ease-in transform;
+}
+
+.hero__container input {
+  width: 73%;
+  padding: 0.75rem;
+}
+
+.hero__container .btn--search {
+  width: 25%;
+  padding: 0.75rem;
 }
 
 .hero__nav {
@@ -115,15 +150,20 @@ input::placeholder {
   padding: var(--small);
 }
 
-.search__btn {
+.hero__nav .btn--search {
+  background-color: var(--btn-bg);
+}
+
+.btn--search {
   margin-right: auto;
   color: var(--text-color);
   padding: var(--x-small) 1rem;
   font-size: 0.875rem;
   cursor: pointer;
+  background-color: var(--btn-cta);
 }
 
-.location__btn {
+.btn--location {
   padding: var(--x-small);
   border-radius: 50%;
   cursor: pointer;

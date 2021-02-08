@@ -8,17 +8,34 @@ const highlight = document.querySelector(".highlight");
 const days = document.querySelector(".days");
 
 const getLocation = document.querySelector(".location-pin");
-// Get data by looking for a city
 const buttonGroup = document.querySelectorAll(".main__group button");
-const input = document.querySelector("input");
+const input = document.querySelector(".main input");
 const btnSubmit = document.querySelector("#submit");
+
+const searchSection = document.querySelector(".hero__container");
+const inputSearch = document.querySelector(".hero__container input");
+const searchPlaces = document.querySelector(".hero__nav .btn--search");
+const searchBtn = document.querySelector(".hero__container .btn--search");
+
+searchPlaces.addEventListener("click", () => {
+  searchSection.classList.add("open");
+});
+
+searchBtn.addEventListener("click", () => {
+  searchSection.classList.remove("open");
+  const inputValue = inputSearch.value;
+  getCityData(inputValue, unit);
+  if (!days.innerHTML == "") {
+    days.innerHTML = "";
+    fiveDayForecastCity(inputValue, unit);
+  }
+});
 
 btnSubmit.addEventListener("click", (e) => {
   e.preventDefault();
   const inputValue = input.value;
   getCityData(inputValue, unit);
   fiveDayForecastCity(inputValue, unit);
-
   main.style.display = "none";
   body.classList.remove("is-open");
 });

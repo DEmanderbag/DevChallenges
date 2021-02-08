@@ -20,26 +20,31 @@
 <body class="is-open">
   <section class="main">
     <h1 class="main__title">Weather application</h1>
+    <div class="main__image">
+      <img src="assets/icons/LightCloud.png" alt="Sun with counds">
+    </div>
     <div class="main__group">
-      <button class="btn location__btn space" data-unit="metric"><span>&deg</span>C</button>
-      <button class="btn location__btn" data-unit="imperial"><span>&deg</span>F</button>
+      <button class="btn btn--location space" data-unit="metric"><span>&deg</span>C</button>
+      <button class="btn btn--location" data-unit="imperial"><span>&deg</span>F</button>
     </div>
     <form action="">
-      <input type="text" placeholder="enter city">
-      <button type="submit" class="btn search__btn" id="submit">Get data</button>
+      <input type="text" placeholder="Enter city name">
+      <button type="submit" class="btn btn--search" id="submit">Search</button>
     </form>
   </section>
 
   <section class="hero">
+    <div class="hero__container">
+      <input type="text" placeholder="search location">
+      <button class="btn btn--search">Search</button>
+    </div>
     <div class="hero__nav">
-      <button class="btn search__btn">Seach for places</button>
-      <button class="btn location__btn location-pin"><img src="assets/icons/my_location.svg"
+      <button class="btn btn--search">Search for places</button>
+      <button class="btn btn--location location-pin"><img src="assets/icons/my_location.svg"
           alt="My location icon"></button>
     </div>
     <div class="weather">
-      <div class="weather__state-icon">
-        <!-- <img src="assets/icons/Shower.png" alt="cloud with rain"> -->
-      </div>
+      <div class="weather__state-icon"></div>
       <p class="weather__temperature">41<span>&#176;c</span></p>
       <p class="weather__state">yes</p>
       <div class="weather__about">
