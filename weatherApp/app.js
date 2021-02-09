@@ -72,7 +72,16 @@ btnSubmit.addEventListener("click", (e) => {
 
 buttonGroup.forEach((e) => {
   e.addEventListener("click", () => {
-    e.classList.toggle("selected");
+    let previous = e.previousElementSibling;
+    let next = e.nextElementSibling;
+    e.classList.add("selected");
+    if (previous === null) {
+      next = e.nextElementSibling;
+      next.classList.remove("selected");
+    } else if (next === null) {
+      previous = e.previousElementSibling;
+      previous.classList.remove("selected");
+    }
     unit = e.dataset["unit"];
   });
 });

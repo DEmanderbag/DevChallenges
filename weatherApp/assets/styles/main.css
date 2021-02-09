@@ -22,6 +22,7 @@
 body {
   font-family: "Raleway", sans-serif;
   position: relative;
+  background-color: var(--section-bg);
 }
 
 img {
@@ -119,6 +120,7 @@ input::placeholder {
 .my__location a {
   color: var(--text-color);
 }
+
 /* Hero section */
 .hero {
   min-height: 70vh;
@@ -252,6 +254,13 @@ input::placeholder {
 
 .location img {
   margin-right: 0.5rem;
+}
+
+.units {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 3rem 0rem 3rem;
+  background-color: var(--section-bg);
 }
 
 .days {
@@ -422,6 +431,11 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+
+  .units {
+    max-width: 50rem;
+    padding: 2rem 0;
   }
 
   .days,
