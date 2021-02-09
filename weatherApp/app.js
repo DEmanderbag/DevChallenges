@@ -18,6 +18,9 @@ const searchPlaces = document.querySelector(".hero__nav .btn--search");
 const searchBtn = document.querySelector(".hero__container .btn--search");
 let unit = "metric";
 
+let currentLat;
+let currentLong;
+
 const myLocation = document.querySelector(".my__location");
 
 myLocation.addEventListener("click", (e) => {
@@ -31,6 +34,9 @@ myLocation.addEventListener("click", (e) => {
     navigator.geolocation.getCurrentPosition((position) => {
       long = position.coords.longitude.toFixed();
       lat = position.coords.latitude.toFixed();
+
+      currentLat = position.coords.latitude;
+      currentLong = position.coords.longitude;
       getData(lat, long, unit);
       if (!days.innerHTML == "") {
         days.innerHTML = "";
@@ -52,7 +58,7 @@ searchBtn.addEventListener("click", () => {
   getCityData(inputValue, unit);
   if (!days.innerHTML == "") {
     days.innerHTML = "";
-    fiveDayForecastCity(inputValue, unit);
+    fiveDayForecastCity(currentLat, currentLong, unit);
   }
 });
 
@@ -60,7 +66,6 @@ btnSubmit.addEventListener("click", (e) => {
   e.preventDefault();
   const inputValue = input.value;
   getCityData(inputValue, unit);
-  fiveDayForecastCity(inputValue, unit);
   main.style.display = "none";
   body.classList.remove("is-open");
 });
@@ -81,6 +86,9 @@ getLocation.addEventListener("click", () => {
     navigator.geolocation.getCurrentPosition((position) => {
       long = position.coords.longitude.toFixed();
       lat = position.coords.latitude.toFixed();
+
+      currentLat = position.coords.latitude;
+      currentLong = position.coords.longitude;
       getData(lat, long, unit);
       if (!days.innerHTML == "") {
         days.innerHTML = "";
@@ -96,6 +104,13 @@ async function getCityData(city, units) {
   const request = await fetch(`${API}/weather?q=${city}&units=${units}&appid=${APIKey}`);
   const response = await request.json();
   let data = response;
+  currentLat = data.coord.lat;
+  currentLong = data.coord.lon;
+
+  if (!days.innerHTML == "") {
+    days.innerHTML = "";
+    fiveDayForecastCity(currentLat, currentLong, unit);
+  }
   populateData(data);
 }
 
@@ -184,19 +199,21 @@ function otherWeatherData(windSpeed, windDeg, humidity, airPressure) {
       </div>`;
 }
 
-async function fiveDayForecastCity(city, units) {
-  const request = await fetch(`${API}/forecast?q=${city}&units=${units}&appid=${APIKey}`);
+async function fiveDayForecastCity(currentLat, currentLong, unit) {
+  const request = await fetch(
+    `${API}onecall?lat=${currentLat}&lon=${currentLong}&exclude=current,minutely,hourly,alerts&units=${unit}&appid=${APIKey}`
+  );
   const data = await request.json();
 
   const fiveDayData = [];
-  for (let i = 0; i < data.list.length; i += 8) {
-    const element = data.list[i];
+  for (let i = 0; i < 5; i++) {
+    const element = data.daily[i];
     fiveDayData.push(element);
   }
 
   for (let i = 0; i < fiveDayData.length; i++) {
-    let maxTemp = fiveDayData[i].main.temp_max.toFixed();
-    let minTemp = fiveDayData[i].main.temp_min.toFixed();
+    let maxTemp = fiveDayData[i].temp.max.toFixed();
+    let minTemp = fiveDayData[i].temp.min.toFixed();
     let icon = fiveDayData[i].weather[0].icon;
     let iconState = fiveDayData[i].weather[0].main;
     if (i === 0) {
@@ -218,20 +235,18 @@ async function fiveDayForecastCity(city, units) {
 
 async function fiveDayForecast(lat, long, unit) {
   const request = await fetch(
-    `${API}/forecast?lat=${lat}&lon=${long}&units=${unit}&appid=${APIKey}`
+    `${API}onecall?lat=${lat}&lon=${long}&exclude=current,minutely,hourly,alerts&units=${unit}&appid=${APIKey}`
   );
   const data = await request.json();
-
-  // Get every 8th element from the API
   const fiveDayData = [];
-  for (let i = 0; i < data.list.length; i += 8) {
-    const element = data.list[i];
+  for (let i = 0; i < 5; i++) {
+    const element = data.daily[i];
     fiveDayData.push(element);
   }
 
   for (let i = 0; i < fiveDayData.length; i++) {
-    let maxTemp = fiveDayData[i].main.temp_max.toFixed();
-    let minTemp = fiveDayData[i].main.temp_min.toFixed();
+    let maxTemp = fiveDayData[i].temp.max.toFixed();
+    let minTemp = fiveDayData[i].temp.min.toFixed();
     let icon = fiveDayData[i].weather[0].icon;
     let iconState = fiveDayData[i].weather[0].main;
     if (i === 0) {
