@@ -1,0 +1,80 @@
+[
+  {
+    "title": "Recipe page",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/RecipePage",
+    "demo": "https://objective-davinci-e4f803.netlify.app/recipepage/",
+    "id": 1
+  },
+  {
+    "title": "404 Not Found",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/404Page",
+    "demo": "https://objective-davinci-e4f803.netlify.app/404page/",
+    "id": 2
+  },
+  {
+    "title": "Interior Consultant ",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/InteriorConsultant",
+    "demo": "https://objective-davinci-e4f803.netlify.app/interiorconsultant/",
+    "id": 3
+  },
+  {
+    "title": "My team page",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/MyTeamPage",
+    "demo": "https://objective-davinci-e4f803.netlify.app/myteampage/",
+    "id": 4
+  },
+  {
+    "title": "My Gallery",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/MyGallery",
+    "demo": "https://objective-davinci-e4f803.netlify.app/mygallery/",
+    "id": 5
+  },
+  {
+    "title": "Checkout Page",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/CheckoutPage",
+    "demo": "https://objective-davinci-e4f803.netlify.app/checkoutpage/",
+    "id": 6
+  },
+  {
+    "title": "Button component",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/DesignSystem",
+    "demo": "https://objective-davinci-e4f803.netlify.app/designsystem/",
+    "id": 7
+  },
+  {
+    "title": "Input component",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/DesignSystem-Input",
+    "demo": "https://objective-davinci-e4f803.netlify.app/designsystem-input/",
+    "id": 8
+  },
+  {
+    "title": "Portfolio",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/portfolio",
+    "demo": "https://objective-davinci-e4f803.netlify.app/portfolio/index.html",
+    "id": 9
+  },
+  {
+    "title": "Edie homepage",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/EdieHomepage",
+    "demo": "https://objective-davinci-e4f803.netlify.app/ediehomepage/",
+    "id": 10
+  },
+  {
+    "title": "Windbnb",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/Windbnb",
+    "demo": "https://objective-davinci-e4f803.netlify.app/windbnb/",
+    "id": 11
+  },
+  {
+    "title": "Random quote generator",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/quoteGenerator",
+    "demo": "https://objective-davinci-e4f803.netlify.app/quotegenerator/",
+    "id": 12
+  },
+  {
+    "title": "Weather App",
+    "code": "https://github.com/DEmanderbag/DevChallenges/tree/master/weatherApp",
+    "demo": "https://objective-davinci-e4f803.netlify.app/weatherapp/",
+    "id": 13
+  }
+]
