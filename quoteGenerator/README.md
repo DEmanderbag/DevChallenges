@@ -1,6 +1,6 @@
 ## Random Quote Generator
 
-A live version of a project can be found [here](https://objective-davinci-e4f803.netlify.app/quotegenerator/ "Random Quote generator live demo")
+A live version of a project can be found [here](https://www.heydusan.com/quotegenerator/ "Random Quote generator live demo")
 
 **Challenge:** Create a quote generator app. Don’t look at the existing solution. Fulfill user stories below:
 

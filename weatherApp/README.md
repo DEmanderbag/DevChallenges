@@ -1,6 +1,6 @@
 ## Weather app
 
-A live version of a project can be found [here](https://objective-davinci-e4f803.netlify.app/weatherapp/ "Weather app live demo")
+A live version of a project can be found [here](https://www.heydusan.com/weatherapp/ "Weather app live demo")
 
 **Challenge:** Create a weather app using an API. Don’t look at the existing solution. Fulfill user stories below:
 
